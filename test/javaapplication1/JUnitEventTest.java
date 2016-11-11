@@ -1,4 +1,4 @@
-package JUnit;
+package javaapplication1;
 
 import org.junit.Test;
 import org.junit.Before;
