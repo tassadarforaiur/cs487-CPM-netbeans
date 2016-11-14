@@ -1,19 +1,3 @@
-/*
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package javaapplication1;
 
 import com.google.api.client.auth.oauth2.TokenResponseException;
@@ -27,6 +11,7 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson.JacksonFactory;
+//import com.google.api.services.plusDomains.model.Person;
 import com.google.api.services.plus.Plus;
 import com.google.api.services.plus.model.PeopleFeed;
 import com.google.gson.Gson;
@@ -57,11 +42,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Simple server to demonstrate how to use Google+ Sign-In and make a request
+ * Simple server for using Google+ Sign-In and making a request
  * via your own server.
  *
- * @author joannasmith@google.com (Joanna Smith)
- * @author vicfryzel@google.com (Vic Fryzel)
  */
 public class Signin {
   /*
@@ -106,7 +89,7 @@ public class Signin {
   /*
    * Optionally replace this with your application's name.
    */
-  private static final String APPLICATION_NAME = "Google+ Java Quickstart";
+  private static final String APPLICATION_NAME = "Google+ CPM";
 
   /**
    * Register all endpoints that we'll handle in our server.
@@ -230,6 +213,16 @@ public class Signin {
         request.getSession().setAttribute("token", tokenResponse.toString());
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().print(GSON.toJson("Successfully connected user."));
+        
+        //Code for posting account information
+        JSONConverter converter = new JSONConverter();
+        HttpPost poster = new HttpPost();
+        Account tempAcc = new Account(gplusId);
+        
+        String JSONData = converter.toJSONGAccount(tempAcc);
+        poster.executePost(JSONData);
+        
+        
       } catch (TokenResponseException e) {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         response.getWriter().print(GSON.toJson("Failed to upgrade the authorization code."));

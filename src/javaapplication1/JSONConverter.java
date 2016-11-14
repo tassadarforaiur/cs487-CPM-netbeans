@@ -40,6 +40,20 @@ public class JSONConverter {
 
         return null;
     }
+    
+    public static String toJSONGAccount(Account a) {
+
+        try {
+            JSONObject accObj = new JSONObject();
+            accObj.put("googleID", a.getGoogleID());
+
+            return accObj.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public static String toJSONEvent(Event ev) {
 

@@ -27,6 +27,10 @@ public class Account implements Serializable{
         phone = ph;
         address = a;
     }
+    
+    public Account(String gID) {
+        googleID = gID;
+    }
 
     public void setUser(String u) {
         this.user = user;

@@ -24,7 +24,7 @@ public class HttpPost{
     private String Port = ":4870";
     private String After = "/login";
 
-    protected String ExecutePost(String... params) {
+    protected String executePost(String... params) {
 
         String JsonResponse = null;
         String JsonDATA = params[0];
