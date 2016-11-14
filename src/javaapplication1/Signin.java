@@ -218,10 +218,12 @@ public class Signin {
         JSONConverter converter = new JSONConverter();
         HttpPost poster = new HttpPost();
         Account tempAcc = new Account(gplusId);
+        String serverResponse = "not a valid response";
         
-        String JSONData = converter.toJSONGAccount(tempAcc);
-        poster.executePost(JSONData);
+        String JSONData = converter.toJSONAccount(tempAcc);
+        serverResponse =poster.executePost(JSONData);
         
+        System.out.println(serverResponse + "GG!");
         
       } catch (TokenResponseException e) {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

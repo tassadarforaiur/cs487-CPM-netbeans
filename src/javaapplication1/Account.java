@@ -8,16 +8,16 @@ import java.util.Date;
 public class Account implements Serializable{
 
 
-    private String user;
-    private String pass;
-    private String name;
-    private String email;
-    private String phone;
-    private String address;
+    private String user="";
+    private String pass="";
+    private String name="";
+    private String email="";
+    private String phone="";
+    private String address="";
     private Calendar accountOpening = Calendar.getInstance();
     private ArrayList<Event> eventList = new ArrayList<>();
 
-    private String googleID;
+    private String googleID="";
 
     public Account(String u, String p, String n, String e, String ph, String a) {
         user = u;
