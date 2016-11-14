@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class    JSONConverter {
+public class JSONConverter {
 
     private String title, start, end, location, description;
 
@@ -20,7 +20,7 @@ public class    JSONConverter {
     private String address;
     private DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");
 
-    public static String toJSONAccount(Account a){
+    public static String toJSONAccount(Account a) {
 
         try {
             JSONObject accObj = new JSONObject();
@@ -41,7 +41,7 @@ public class    JSONConverter {
         return null;
     }
 
-    public static String toJSONEvent(Event ev){
+    public static String toJSONEvent(Event ev) {
 
         try {
             JSONObject accObj = new JSONObject();
@@ -59,19 +59,19 @@ public class    JSONConverter {
         return null;
     }
 
-    public Event deserializeJSONEvent(String JSData){
+    public Event deserializeJSONEvent(String JSData) {
         Event tempEv;
 
         try {
             JSONObject evObj = new JSONObject(JSData);
 
-            title=evObj.getString("title");
-            start=evObj.getString("start");
-            end=evObj.getString("end");
-            location=evObj.getString("location");
-            description=evObj.getString("description");
+            title = evObj.getString("title");
+            start = evObj.getString("start");
+            end = evObj.getString("end");
+            location = evObj.getString("location");
+            description = evObj.getString("description");
 
-            tempEv = new Event(title,description,/*start, end,*/location);
+            tempEv = new Event(title, description,/*start, end,*/ location);
 
             return tempEv;
 
@@ -82,22 +82,22 @@ public class    JSONConverter {
         return null;
     }
 
-    public Account deserializeJSONAccount(String JSData){
+    public Account deserializeJSONAccount(String JSData) {
         Account tempAcc;
 
         try {
             JSONObject accObj = new JSONObject(JSData);
 
-            user=accObj.getString("user");
-            pass=accObj.getString("pass");
-            name=accObj.getString("name");
-            email=accObj.getString("email");
-            phone=accObj.getString("phone");
-            address=accObj.getString("address");
+            user = accObj.getString("user");
+            pass = accObj.getString("pass");
+            name = accObj.getString("name");
+            email = accObj.getString("email");
+            phone = accObj.getString("phone");
+            address = accObj.getString("address");
 
-            Date result =  df.parse(accObj.getString("date"));
+            Date result = df.parse(accObj.getString("date"));
 
-            tempAcc = new Account(user,pass,name,email,phone,address);
+            tempAcc = new Account(user, pass, name, email, phone, address);
 
             tempAcc.setGoogleID(accObj.getString("googleID"));
             tempAcc.setAccountOpening(result);
