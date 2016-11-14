@@ -95,6 +95,10 @@ public class Account implements Serializable{
     public Calendar getAccountOpening(){
         return this.accountOpening;
     }
+    
+    public ArrayList getEventList(){
+        return this.eventList;
+    }
 
     public String toString() {
         return name + "\n" + email +" "+ phone + "\n" + address;

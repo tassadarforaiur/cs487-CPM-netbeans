@@ -47,6 +47,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 public class Signin {
+    
   /*
    * Default HTTP transport to use to make HTTP requests.
    */
@@ -221,7 +222,7 @@ public class Signin {
         String serverResponse = "not a valid response";
         
         String JSONData = converter.toJSONAccount(tempAcc);
-        serverResponse =poster.executePost(JSONData);
+        serverResponse = poster.executePost(JSONData);
         
         System.out.println(serverResponse + "GG!");
         
