@@ -14,7 +14,9 @@ public class profileEditFrame extends javax.swing.JFrame {
     /**
      * Creates new form profileEditFrame
      */
-    public profileEditFrame() {
+    private String googleID="";
+    public profileEditFrame(){//String gID) {
+        //googleID=gID;
         initComponents();
     }
 
@@ -296,7 +298,18 @@ public class profileEditFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Account tempAcc = new Account(googleID);
+        tempAcc.setName(jTextField1+" "+jTextField2+" "+jTextField3);
+        tempAcc.setAddress(jTextField5+" "+jTextField6+" "+jTextField7);
+        
+        JSONConverter converter = new JSONConverter();
+        HttpPost poster = new HttpPost();
+        String serverResponse = "not a valid response";
+        
+        String JSONData = converter.toJSONAccount(tempAcc);
+        serverResponse = poster.executePost(JSONData);
+        
+        //System.out.println(serverResponse + "GG!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

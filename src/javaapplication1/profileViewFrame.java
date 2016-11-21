@@ -14,7 +14,9 @@ public class profileViewFrame extends javax.swing.JFrame {
     /**
      * Creates new form profileViewFrame
      */
-    public profileViewFrame() {
+    private Account tempAcc;
+    public profileViewFrame(){//Account a) {
+        //tempAcc=a;
         initComponents();
     }
 
