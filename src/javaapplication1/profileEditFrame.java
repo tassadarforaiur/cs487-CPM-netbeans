@@ -326,6 +326,11 @@ public class profileEditFrame extends javax.swing.JFrame {
         close();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        close();
+        mainMenuFrame mMF = new mainMenuFrame();
+        mMF.setVisible(true);
+    }     
     /**
      * @param args the command line arguments
      */
