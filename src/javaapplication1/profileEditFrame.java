@@ -317,7 +317,7 @@ public class profileEditFrame extends javax.swing.JFrame {
         String serverResponse = "not a valid response";
         
         String JSONData = converter.toJSONAccount(tempAcc);
-        serverResponse = poster.executePost(JSONData);
+        serverResponse = poster.executePostAcc(JSONData);
         
         System.out.println("server says: "+serverResponse);
         
