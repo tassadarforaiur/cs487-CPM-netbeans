@@ -307,10 +307,15 @@ public class profileViewFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         close();
-        profileEditFrame pVF = new profileEditFrame();
-        pVF.setVisible(true);
+        profileEditFrame pEF = new profileEditFrame();
+        pEF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        close();
+        mainMenuFrame mMF = new mainMenuFrame();
+        mMF.setVisible(true);
+    }                                     
     /**
      * @param args the command line arguments
      */
