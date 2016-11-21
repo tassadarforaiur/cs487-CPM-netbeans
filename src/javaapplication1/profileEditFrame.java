@@ -319,7 +319,7 @@ public class profileEditFrame extends javax.swing.JFrame {
         String JSONData = converter.toJSONAccount(tempAcc);
         serverResponse = poster.executePost(JSONData);
         
-        //System.out.println(serverResponse + "GG!");
+        System.out.println("server says: "+serverResponse);
         
         profileViewFrame pVF = new profileViewFrame();
         pVF.setVisible(true);

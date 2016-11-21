@@ -85,7 +85,7 @@ public class Signin {
   /*
    * This is the Client Secret that you generated in the API Console.
    */
-  private static final String CLIENT_SECRET = "iBnjLFSh8q0eyCZL6yMCeKNu";//clientSecrets.getWeb().getClientSecret();
+  private static final String CLIENT_SECRET = clientSecrets.getWeb().getClientSecret();//"iBnjLFSh8q0eyCZL6yMCeKNu";//clientSecrets.getWeb().getClientSecret();
 
   /*
    * Optionally replace this with your application's name.
@@ -224,7 +224,7 @@ public class Signin {
         String JSONData = converter.toJSONAccount(tempAcc);
         serverResponse = poster.executePost(JSONData);
         
-        System.out.println(serverResponse + "GG!");
+        System.out.println("server says: "+serverResponse);
         
         profileViewFrame pVF = new profileViewFrame();
         pVF.setVisible(true);
