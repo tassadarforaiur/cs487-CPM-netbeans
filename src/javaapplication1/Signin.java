@@ -226,6 +226,9 @@ public class Signin {
         
         System.out.println(serverResponse + "GG!");
         
+        profileViewFrame pVF = new profileViewFrame();
+        pVF.setVisible(true);
+        
       } catch (TokenResponseException e) {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         response.getWriter().print(GSON.toJson("Failed to upgrade the authorization code."));

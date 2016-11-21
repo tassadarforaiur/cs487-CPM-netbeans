@@ -5,6 +5,9 @@
  */
 package javaapplication1;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author manny
@@ -18,6 +21,13 @@ public class profileEditFrame extends javax.swing.JFrame {
     public profileEditFrame(){//String gID) {
         //googleID=gID;
         initComponents();
+    }
+    
+    public void close(){
+
+    WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+
     }
 
     /**
@@ -310,6 +320,10 @@ public class profileEditFrame extends javax.swing.JFrame {
         serverResponse = poster.executePost(JSONData);
         
         //System.out.println(serverResponse + "GG!");
+        
+        close();
+        profileViewFrame pVF = new profileViewFrame();
+        pVF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
