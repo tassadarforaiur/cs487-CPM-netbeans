@@ -281,7 +281,7 @@ public class ProfileEditPanel extends javax.swing.JPanel {
         String serverResponse = "not a valid response";
         
         String JSONData = converter.toJSONAccount(tempAcc);
-        serverResponse = poster.executePost(JSONData);
+        serverResponse = poster.executePostAcc(JSONData);
         
         //System.out.println(serverResponse + "GG!");
         
