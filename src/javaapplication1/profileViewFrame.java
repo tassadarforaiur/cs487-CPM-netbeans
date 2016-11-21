@@ -5,6 +5,9 @@
  */
 package javaapplication1;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Cpt.Bl'Ands
@@ -20,6 +23,13 @@ public class profileViewFrame extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void close(){
+
+    WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +59,7 @@ public class profileViewFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("fName"));
 
@@ -296,7 +306,9 @@ public class profileViewFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //  jTextField1=tempAcc.getName();
+        close();
+        profileEditFrame pVF = new profileEditFrame();
+        pVF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

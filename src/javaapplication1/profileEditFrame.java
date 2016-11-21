@@ -59,7 +59,7 @@ public class profileEditFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("fName"));
 
@@ -321,9 +321,9 @@ public class profileEditFrame extends javax.swing.JFrame {
         
         //System.out.println(serverResponse + "GG!");
         
-        close();
         profileViewFrame pVF = new profileViewFrame();
         pVF.setVisible(true);
+        close();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
