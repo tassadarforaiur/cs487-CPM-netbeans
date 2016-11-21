@@ -311,6 +311,11 @@ public class profileViewFrame extends javax.swing.JFrame {
         pEF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        close();
+        mainMenuFrame mMF = new mainMenuFrame();
+        mMF.setVisible(true);
+    }                                     
     /**
      * @param args the command line arguments
      */
