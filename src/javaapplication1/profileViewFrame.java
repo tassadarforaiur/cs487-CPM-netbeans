@@ -321,6 +321,7 @@ public class profileViewFrame extends javax.swing.JFrame {
         mMF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
                             
+                                   
     /**
      * @param args the command line arguments
      */
