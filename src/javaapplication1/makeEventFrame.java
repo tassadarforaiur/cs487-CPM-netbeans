@@ -149,6 +149,19 @@ public class makeEventFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Event tempEvent = new Event(googleID);
+        //tempEvent.setTitle(jTextField1);
+        //tempEvent.setStart(jTextField5+" "+jTextField6+" "+jTextField7);
+        
+        JSONConverter converter = new JSONConverter();
+        HttpPost poster = new HttpPost();
+        String serverResponse = "not a valid response";
+        
+        //String JSONData = converter.toJSONEvent(tempEvent);
+        //serverResponse = poster.executePostEvent(JSONData);
+        
+        System.out.println("server says: "+serverResponse);
+        
         close();
         //viewEventFrame vEF = new viewEventFrame(googleID);
         //vEF.setVisible(true);

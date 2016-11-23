@@ -32,6 +32,10 @@ public class Event{
         hostID="Teddy";
         eventID="eTED";
     }
+    
+    public Event(String hID){
+        hostID=hID;
+    }
 
     public Event(String tt, String d, int sY, int sM, int sD, int eY, int eM, int eD, String l,String hID, String eID){
         title = tt;
@@ -96,6 +100,30 @@ public class Event{
 
     public String getEventID(){
         return this.eventID;
+    }
+    
+    public void setTitle(String t){
+        title=t;
+    }
+
+    public void setDescription(String d){
+        description=d;
+    }
+
+    public void setLocation(String l){
+        location=l;
+    }
+
+    public void setStart(int sD, int sM, int sY){
+        start.set(sY, sM, sD);
+    }
+
+    public void setEnd(int eD, int eM, int eY){
+        end.set(eY, eM, eD);
+    }
+
+    public void setEventID(String eID){
+        eventID=eID;
     }
 
 }
