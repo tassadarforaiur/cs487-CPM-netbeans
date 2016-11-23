@@ -21,6 +21,12 @@ public class makeEventFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    private String googleID;
+    public makeEventFrame(String gID) {
+        googleID=gID;
+        initComponents();
+    }
+    
     public void close(){
 
     WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
@@ -143,12 +149,14 @@ public class makeEventFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        close();
+        //viewEventFrame vEF = new viewEventFrame(googleID);
+        //vEF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        moreEventsFrame mEF = new moreEventsFrame();
+        moreEventsFrame mEF = new moreEventsFrame(googleID);
         mEF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
