@@ -17,9 +17,13 @@ public class profileEditFrame extends javax.swing.JFrame {
     /**
      * Creates new form profileEditFrame
      */
-    private String googleID="";
-    public profileEditFrame(){//String gID) {
-        //googleID=gID;
+    public profileEditFrame(){
+        initComponents();
+    }
+    
+    private String googleID;
+    public profileEditFrame(String gID) {
+        googleID=gID;
         initComponents();
     }
     
@@ -325,14 +329,14 @@ public class profileEditFrame extends javax.swing.JFrame {
         
         System.out.println("server says: "+serverResponse);
         
-        profileViewFrame pVF = new profileViewFrame();
+        profileViewFrame pVF = new profileViewFrame(googleID);
         pVF.setVisible(true);
         close();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        mainMenuFrame mMF = new mainMenuFrame();
+        mainMenuFrame mMF = new mainMenuFrame(googleID);
         mMF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

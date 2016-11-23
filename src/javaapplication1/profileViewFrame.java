@@ -17,9 +17,15 @@ public class profileViewFrame extends javax.swing.JFrame {
     /**
      * Creates new form profileViewFrame
      */
+    public profileViewFrame(){
+        initComponents();
+    }
+    
     private Account tempAcc;
-    public profileViewFrame(){//Account a) {
-        //tempAcc=a;
+    private String googleID;
+    public profileViewFrame(String gID){
+        tempAcc=new Account(gID);
+        googleID=gID;
         initComponents();
     }
 
@@ -311,13 +317,13 @@ public class profileViewFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         close();
-        profileEditFrame pEF = new profileEditFrame();
+        profileEditFrame pEF = new profileEditFrame(googleID);
         pEF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        mainMenuFrame mMF = new mainMenuFrame();
+        mainMenuFrame mMF = new mainMenuFrame(googleID);
         mMF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
                                    

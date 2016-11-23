@@ -20,12 +20,16 @@ public class moreEventsFrame extends javax.swing.JFrame {
     public moreEventsFrame() {
         initComponents();
     }
+    
+    private String googleID;
+    public moreEventsFrame(String gID) {
+        googleID=gID;
+        initComponents();
+    }
 
-     public void close(){
-
-    WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
-    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
-
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
      
     /**
@@ -125,13 +129,13 @@ public class moreEventsFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        mainMenuFrame mMF = new mainMenuFrame();
+        mainMenuFrame mMF = new mainMenuFrame(googleID);
         mMF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         close();
-        profileViewFrame pVF = new profileViewFrame();
+        profileViewFrame pVF = new profileViewFrame(googleID);
         pVF.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 

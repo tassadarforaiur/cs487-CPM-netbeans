@@ -21,6 +21,12 @@ public class mainMenuFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    private String googleID;
+    public mainMenuFrame(String gID) {
+        googleID=gID;
+        initComponents();
+    }
+    
      public void close(){
 
     WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
@@ -125,13 +131,13 @@ public class mainMenuFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        moreEventsFrame mEF = new moreEventsFrame();
+        moreEventsFrame mEF = new moreEventsFrame(googleID);
         mEF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         close();
-        profileViewFrame pVF = new profileViewFrame();
+        profileViewFrame pVF = new profileViewFrame(googleID);
         pVF.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 

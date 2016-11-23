@@ -226,7 +226,7 @@ public class Signin {
         
         System.out.println("server says: "+serverResponse);
         
-        profileViewFrame pVF = new profileViewFrame();
+        profileViewFrame pVF = new profileViewFrame(gplusId);
         pVF.setVisible(true);
         
       } catch (TokenResponseException e) {
