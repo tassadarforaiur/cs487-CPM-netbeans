@@ -326,6 +326,7 @@ public class profileViewFrame extends javax.swing.JFrame {
         mainMenuFrame mMF = new mainMenuFrame(googleID);
         mMF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+                            
                                    
     /**
      * @param args the command line arguments
