@@ -1,13 +1,15 @@
 package javaapplication1;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+//import javax.json.*;
 
 public class JSONConverter {
 
@@ -59,14 +61,22 @@ public class JSONConverter {
     public static String toJSONEvent(Event ev) {
 
         try {
-            JSONArray arrayBuilder = new JSONArray();
+            Gson gson = new GsonBuilder().create();
+            JsonArray schedule = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();
+            JsonArray attendees = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();
+            
+            
             JSONObject accObj = new JSONObject();
+                       
             accObj.put("title", ev.getTitle());
             accObj.put("description", ev.getDescription());
             accObj.put("start", ev.getStart().toString());
             accObj.put("end", ev.getEnd()).toString();
             accObj.put("location", ev.getLocation());
-            for(int i=0;i<ev.Schedule)
+            accObj.put("register_link", ev.getRegisterLink());
+            accObj.put("image", ev.getImageFN());
+            accObj.put("events", schedule);
+            accObj.put("attendees", attendees);
 
             return accObj.toString();
         } catch (JSONException e) {

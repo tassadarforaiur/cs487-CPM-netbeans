@@ -12,7 +12,7 @@ public class Event{
 
     
     private ArrayList<String> schedule = new ArrayList<>(); 
-    //private ArrayList<Account> attendees = new ArrayList<>();
+    private ArrayList<String> attendees = new ArrayList<>();
     //private ArrayList<Event> moderators = new ArrayList<>();
     //private ArrayList<Account> hosts = new ArrayList<>();
     
@@ -53,6 +53,14 @@ public class Event{
 
     public void appendSchedule(String a){
         schedule.add(a);
+    }
+    
+    public void appendAttendees(Account a){
+        attendees.add(a.getGoogleID());
+    }
+    
+    public void appendAttendees(String aGID){
+        attendees.add(aGID);
     }
     
     public String toString(){
@@ -119,6 +127,18 @@ public class Event{
 
     public String getRegisterLink() {
         return registerLink;
+    }
+    
+    public ArrayList<String> getAttendees() {
+        return attendees;
+    }
+
+    public void setHostID(String hID){
+        this.hostID=hID;
+    }
+    
+    public void setAttendees(ArrayList<String> attendees) {
+        this.attendees = attendees;
     }
 
     public void setRegisterLink(String registerLink) {
