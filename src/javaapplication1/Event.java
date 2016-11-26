@@ -94,7 +94,7 @@ public class Event{
     }
 
     public String getLocation(){
-        return this.getLocation();
+        return this.location;
     }
 
     public Calendar getStart(){

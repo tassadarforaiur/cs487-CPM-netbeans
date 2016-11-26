@@ -115,8 +115,6 @@ public class JSONConverter {
         try {
             JSONObject accObj = new JSONObject(JSData);
 
-            user = accObj.getString("user");
-            pass = accObj.getString("pass");
             name = accObj.getString("name");
             email = accObj.getString("email");
             phone = accObj.getString("phone");
@@ -127,6 +125,7 @@ public class JSONConverter {
             tempAcc = new Account(user, pass, name, email, phone, address);
 
             tempAcc.setGoogleID(accObj.getString("googleID"));
+            
             tempAcc.setAccountOpening(result);
 
             return tempAcc;
