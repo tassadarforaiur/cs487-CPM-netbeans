@@ -1,9 +1,14 @@
 package javaapplication1;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Account implements Serializable{
 
@@ -16,6 +21,8 @@ public class Account implements Serializable{
     private String address="";
     private Calendar accountOpening = Calendar.getInstance();
     private ArrayList<Event> eventList = new ArrayList<>();
+    
+    private DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");
 
     private String googleID="";
 
@@ -94,6 +101,10 @@ public class Account implements Serializable{
 
     public Calendar getAccountOpening(){
         return this.accountOpening;
+    }
+    
+    public String getFormattedOpening(){
+            return df.format(this.accountOpening.getTime());
     }
     
     public ArrayList getEventList(){

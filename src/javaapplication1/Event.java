@@ -8,10 +8,14 @@ public class Event{
 
     private Calendar start= Calendar.getInstance();
     private Calendar end = Calendar.getInstance();
-    private String title, status="inactive", location, description, hostID, eventID;
-    private ArrayList<Account> attendees = new ArrayList<>();
-    private ArrayList<Event> moderators = new ArrayList<>();
-    private ArrayList<Event> hosts = new ArrayList<>();
+    private String title, status="inactive", location, description, hostID, eventID, imageFN, registerLink;
+
+    
+    private ArrayList<String> schedule = new ArrayList<>(); 
+    //private ArrayList<Account> attendees = new ArrayList<>();
+    //private ArrayList<Event> moderators = new ArrayList<>();
+    //private ArrayList<Account> hosts = new ArrayList<>();
+    
 
     public Event(String t, String d, String l){
         title = "TEDTalks";
@@ -47,9 +51,12 @@ public class Event{
         eventID=eID;
     }
 
+    public void appendSchedule(String a){
+        schedule.add(a);
+    }
+    
     public String toString(){
         return ""+title+"\n"+description+"\n"+location+"\n";
-
     }
 
     //Takes the difference in Milliseconds(start-current)
@@ -100,6 +107,30 @@ public class Event{
 
     public String getEventID(){
         return this.eventID;
+    }
+    
+    public String getImageFN(){
+        return this.imageFN;
+    }
+    
+    public ArrayList getSchedule(){
+        return this.schedule;
+    }
+
+    public String getRegisterLink() {
+        return registerLink;
+    }
+
+    public void setRegisterLink(String registerLink) {
+        this.registerLink = registerLink;
+    }    
+    
+    public void setSchedule(ArrayList<String> s){
+        schedule=s;
+    }
+    
+    public void setImageFN(String i){
+        imageFN=i;
     }
     
     public void setTitle(String t){

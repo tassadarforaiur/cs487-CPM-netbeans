@@ -2,6 +2,7 @@ package javaapplication1;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,7 +32,7 @@ public class JSONConverter {
             accObj.put("phone", a.getPhone());
             accObj.put("address", a.getAddress());
             accObj.put("googleID", a.getGoogleID());
-            accObj.put("date", a.getAccountOpening().toString());
+            accObj.put("date", a.getFormattedOpening());
 
             return accObj.toString();
         } catch (JSONException e) {
@@ -58,12 +59,14 @@ public class JSONConverter {
     public static String toJSONEvent(Event ev) {
 
         try {
+            JSONArray arrayBuilder = new JSONArray();
             JSONObject accObj = new JSONObject();
             accObj.put("title", ev.getTitle());
             accObj.put("description", ev.getDescription());
             accObj.put("start", ev.getStart().toString());
             accObj.put("end", ev.getEnd()).toString();
             accObj.put("location", ev.getLocation());
+            for(int i=0;i<ev.Schedule)
 
             return accObj.toString();
         } catch (JSONException e) {
