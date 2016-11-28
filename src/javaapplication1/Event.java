@@ -1,5 +1,7 @@
  package javaapplication1;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,13 +12,9 @@ public class Event{
     private Calendar start= Calendar.getInstance();
     private Calendar end = Calendar.getInstance();
     private String title, status="inactive", location, description, hostID, eventID, imageFN, registerLink;
-
-    
+    private DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");
     private ArrayList<String> schedule = new ArrayList<>(); 
-    private ArrayList<String> attendees = new ArrayList<>();
-    //private ArrayList<Event> moderators = new ArrayList<>();
-    //private ArrayList<Account> hosts = new ArrayList<>();
-    
+    private ArrayList<String> attendees = new ArrayList<>();    
 
     public Event(String t, String d, String l){
         title = "TEDTalks";
@@ -65,7 +63,7 @@ public class Event{
     }
     
     public String toString(){
-        return ""+title+"\n"+description+"\n"+location+"\n";
+        return ""+title+"\n"+description+"\n"+location;
     }
 
     //Takes the difference in Milliseconds(start-current)
@@ -101,9 +99,17 @@ public class Event{
     public Calendar getStart(){
         return this.start;
     }
+    
+    public String getFormattedStart(){
+            return df.format(this.start.getTime());
+    }
 
     public Calendar getEnd(){
         return this.end;
+    }
+    
+    public String getFormattedEnd(){
+            return df.format(this.end.getTime());
     }
 
     public String getStatus(){
@@ -122,7 +128,7 @@ public class Event{
         return this.imageFN;
     }
     
-    public ArrayList getSchedule(){
+    public ArrayList<String> getSchedule(){
         return this.schedule;
     }
 

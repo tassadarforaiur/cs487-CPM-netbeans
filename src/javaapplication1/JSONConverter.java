@@ -1,16 +1,27 @@
 package javaapplication1;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.*;
+import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import java.lang.String;
+import java.lang.reflect.Type;
+//import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 //import javax.json.*;
 
 public class JSONConverter {
@@ -60,20 +71,21 @@ public class JSONConverter {
         try {
             Gson gson = new GsonBuilder().create();
             JsonArray schedule = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();
-            JsonArray attendees = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();
-            
+            JsonArray attendees = gson.toJsonTree(ev.getAttendees()).getAsJsonArray();
+            String scheduleJSON = gson.toJson(ev.getSchedule());
+            String attendeesJSON = gson.toJson(ev.getAttendees());
             
             JSONObject accObj = new JSONObject();
                        
             accObj.put("title", ev.getTitle());
             accObj.put("description", ev.getDescription());
-            accObj.put("start", ev.getStart().toString());
-            accObj.put("end", ev.getEnd()).toString();
+            accObj.put("start", ev.getFormattedStart());
+            accObj.put("end", ev.getFormattedEnd());
             accObj.put("location", ev.getLocation());
             accObj.put("register_link", ev.getRegisterLink());
             accObj.put("image", ev.getImageFN());
-            accObj.put("events", schedule);
-            accObj.put("attendees", attendees);
+            accObj.put("schedule", scheduleJSON);
+            accObj.put("attendees", attendeesJSON);
 
             return accObj.toString();
         } catch (JSONException e) {
@@ -99,6 +111,23 @@ public class JSONConverter {
             tempEv = new Event(title, description, location);
             tempEv.setStart(start);
             tempEv.setEnd(end);
+            
+            Gson gson = new Gson();
+
+            @SuppressWarnings("serial")
+            Type collectionType = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> tempEventAttendeeInfo = gson.fromJson(evObj.getString("attendees"), collectionType);  
+            
+            tempEv.setAttendees(tempEventAttendeeInfo);
+            
+            @SuppressWarnings("serial")
+            Type collectionType2 = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> tempEventScheduleInfo = gson.fromJson(evObj.getString("schedule"), collectionType2);  
+            
+            tempEv.setAttendees(tempEventScheduleInfo);
+            
 
             return tempEv;
 
