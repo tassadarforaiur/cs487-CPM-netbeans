@@ -55,6 +55,13 @@ public class JUnitJSONConverter {
     }
     
     @Test
+    public void testToJSONEventTitle() {
+        String expected = "{\"title\":\"Cool Event\"}";
+        assertEquals(expected, jC.toJSONEventTitle("Cool Event"));
+        System.out.println("@Test - testToJSONEventTitle");
+    }
+    
+    @Test
     public void testToJSONEvent() {
         String expected = "{\"image\":\"devbharel/cbdc.jpg\",\"schedule\":\"[\\\"skiing\\\",\\\"dancing\\\"]\",\"register_link\":\"something.com\",\"attendees\":\"[\\\"123\\\",\\\"456\\\",\\\"789\\\"]\",\"start\":\""+e.getFormattedStart()+"\",\"description\":\"Coolest Event\",\"end\":\""+e.getFormattedEnd()+"\",\"location\":\"here\",\"title\":\"Chicago Blockchain Developers Conference\"}";
         assertEquals(expected, jC.toJSONEvent(e));
