@@ -65,6 +65,18 @@ public class JSONConverter {
 
         return null;
     }
+    
+    public static String toJSONEventTitle(String s){
+        try {
+            JSONObject evObj = new JSONObject();
+            evObj.put("title", s);
+
+            return evObj.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static String toJSONEvent(Event ev) {
 
