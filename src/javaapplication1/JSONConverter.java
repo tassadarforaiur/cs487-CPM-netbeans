@@ -69,7 +69,7 @@ public class JSONConverter {
     public static String toJSONEventTitle(String s){
         try {
             JSONObject evObj = new JSONObject();
-            evObj.put("title", s);
+            evObj.put("eventName", s);
 
             return evObj.toString();
         } catch (JSONException e) {
@@ -91,7 +91,7 @@ public class JSONConverter {
             
             JSONObject evObj = new JSONObject();
                        
-            evObj.put("title", ev.getTitle());
+            evObj.put("eventName", ev.getTitle());
             evObj.put("description", ev.getDescription());
             evObj.put("start", ev.getFormattedStart());
             evObj.put("end", ev.getFormattedEnd());

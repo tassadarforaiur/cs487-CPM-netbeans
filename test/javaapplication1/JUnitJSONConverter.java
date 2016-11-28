@@ -25,6 +25,7 @@ public class JUnitJSONConverter {
         jC = new JSONConverter();
         a = new Account("Andy Roedger", "aroedg@iit.edu", "1-(212)-664-7665", "65 Alberta Ave");
         a.setGoogleID("thisID123");
+        //a.setAttendeesString("thisID123,123,456");
         e = new Event();
         e.setTitle("Chicago Blockchain Developers Conference");
         e.setDescription("Coolest Event");
@@ -56,14 +57,14 @@ public class JUnitJSONConverter {
     
     @Test
     public void testToJSONEventTitle() {
-        String expected = "{\"title\":\"Cool Event\"}";
+        String expected = "{\"eventName\":\"Cool Event\"}";
         assertEquals(expected, jC.toJSONEventTitle("Cool Event"));
         System.out.println("@Test - testToJSONEventTitle");
     }
     
     @Test
     public void testToJSONEvent() {
-        String expected = "{\"image\":\"devbharel/cbdc.jpg\",\"schedule\":\"[\\\"skiing\\\",\\\"dancing\\\"]\",\"register_link\":\"something.com\",\"attendees\":\"[\\\"123\\\",\\\"456\\\",\\\"789\\\"]\",\"start\":\""+e.getFormattedStart()+"\",\"description\":\"Coolest Event\",\"end\":\""+e.getFormattedEnd()+"\",\"location\":\"here\",\"title\":\"Chicago Blockchain Developers Conference\"}";
+        String expected = "{\"image\":\"devbharel/cbdc.jpg\",\"register_link\":\"something.com\",\"organizer\":\"some userid\",\"start\":\""+e.getFormattedStart()+"\",\"description\":\"Coolest Event\",\"end\":\""+e.getFormattedEnd()+"\",\"location\":\"here\",\"eventName\":\"Chicago Blockchain Developers Conference\"}";
         assertEquals(expected, jC.toJSONEvent(e));
         System.out.println("@Test - testToJSONEvent");
     }
