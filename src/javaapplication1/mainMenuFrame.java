@@ -147,7 +147,18 @@ public class mainMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        JSONConverter converter = new JSONConverter();
         
+        HttpPost poster = new HttpPost();
+        
+        String JSONData = converter.toJSONEventTitle(jTextField1.getText());
+        String serverResponse = poster.executePost(JSONData, "/getEventByName");
+        
+        System.out.println("server says: "+serverResponse);
+        
+        close();
+        viewEventFrame vEF = new viewEventFrame(googleID);
+        vEF.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
