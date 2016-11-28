@@ -241,7 +241,8 @@ public class makeEventFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Event tempEvent = new Event(jTextField1, jTextArea1, startYearField, startMonthField, startDayField, endYearField, endMonthField, endDayField, jTextArea2, googleID);     
+        Event tempEvent = new Event(jTextField1.getText(), jTextArea1.getText(), Integer.parseInt(startYearField.getText()), Integer.parseInt(startMonthField.getText()), Integer.parseInt(startDayField.getText()), Integer.parseInt(endYearField.getText()), Integer.parseInt(endMonthField.getText()), Integer.parseInt(endDayField.getText()), jTextArea2.getText(), googleID);     
+        tempEvent.appendAttendees(googleID);
         
         close();
         
