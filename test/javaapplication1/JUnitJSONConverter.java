@@ -23,7 +23,7 @@ public class JUnitJSONConverter {
         schedule.add("skiing");
         schedule.add("dancing");
         jC = new JSONConverter();
-        a = new Account("aroedg", "RoegerBros123", "Andy Roedger", "aroedg@iit.edu", "1-(212)-664-7665", "65 Alberta Ave");
+        a = new Account("Andy Roedger", "aroedg@iit.edu", "1-(212)-664-7665", "65 Alberta Ave");
         e = new Event();
         e.setTitle("Chicago Blockchain Developers Conference");
         e.setDescription("Coolest Event");

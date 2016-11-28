@@ -16,9 +16,6 @@ import java.util.logging.Logger;
 public class JSONConverter {
 
     private String title, start, end, location, description;
-
-    private String user;
-    private String pass;
     private String name;
     private String email;
     private String phone;
@@ -127,7 +124,7 @@ public class JSONConverter {
 
             Date result = df.parse(accObj.getString("date"));
 
-            tempAcc = new Account(user, pass, name, email, phone, address);
+            tempAcc = new Account(name, email, phone, address);
 
             tempAcc.setGoogleID(accObj.getString("googleID"));
             

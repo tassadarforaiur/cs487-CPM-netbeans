@@ -12,9 +12,6 @@ import java.util.logging.Logger;
 
 public class Account implements Serializable{
 
-
-    private String user="";
-    private String pass="";
     private String name="";
     private String email="";
     private String phone="";
@@ -26,9 +23,7 @@ public class Account implements Serializable{
 
     private String googleID="";
 
-    public Account(String u, String p, String n, String e, String ph, String a) {
-        user = u;
-        pass = p;
+    public Account(String n, String e, String ph, String a) {
         name = n;
         email = e;
         phone = ph;
@@ -37,14 +32,6 @@ public class Account implements Serializable{
     
     public Account(String gID) {
         googleID = gID;
-    }
-
-    public void setUser(String u) {
-        this.user = user;
-    }
-
-    public void setPass(String p) {
-        this.pass = pass;
     }
 
     public void setName(String n){
@@ -65,14 +52,6 @@ public class Account implements Serializable{
 
     public void setGoogleID(String googleID) {
         this.googleID = googleID;
-    }
-
-    public String getUser(){
-        return this.user;
-    }
-
-    public String getPass(){
-        return this.pass;
     }
 
     public String getName(){
