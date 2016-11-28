@@ -9,6 +9,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import javax.json.*;
 
 public class JSONConverter {
@@ -27,8 +29,6 @@ public class JSONConverter {
 
         try {
             JSONObject accObj = new JSONObject();
-            accObj.put("user", a.getUser());
-            accObj.put("user", a.getPass());
             accObj.put("email", a.getEmail());
             accObj.put("name", a.getName());
             accObj.put("phone", a.getPhone());
@@ -93,17 +93,22 @@ public class JSONConverter {
             JSONObject evObj = new JSONObject(JSData);
 
             title = evObj.getString("title");
-            start = evObj.getString("start");
-            end = evObj.getString("end");
             location = evObj.getString("location");
             description = evObj.getString("description");
+            
+            Date start = df.parse(evObj.getString("start"));
+            Date end = df.parse(evObj.getString("end"));
 
-            tempEv = new Event(title, description,/*start, end,*/ location);
+            tempEv = new Event(title, description, location);
+            tempEv.setStart(start);
+            tempEv.setEnd(end);
 
             return tempEv;
 
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (ParseException ex) {
+            Logger.getLogger(JSONConverter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return null;

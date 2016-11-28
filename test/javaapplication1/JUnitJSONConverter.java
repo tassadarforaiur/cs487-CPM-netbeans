@@ -16,6 +16,7 @@ public class JUnitJSONConverter {
 
     @Before
     public void setUp()	{
+        a.setGoogleID("thisID123");
         attendees.add("123");
         attendees.add("456");
         attendees.add("789");

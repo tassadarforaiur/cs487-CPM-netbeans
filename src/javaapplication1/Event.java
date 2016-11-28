@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class Event{
@@ -168,9 +169,17 @@ public class Event{
     public void setStart(int sD, int sM, int sY){
         start.set(sY, sM, sD);
     }
+    
+    public void setStart(Date s){
+        start.setTime(s);
+    }
 
     public void setEnd(int eD, int eM, int eY){
         end.set(eY, eM, eD);
+    }
+    
+    public void setEnd(Date e){
+        end.setTime(e);
     }
 
     public void setEventID(String eID){
