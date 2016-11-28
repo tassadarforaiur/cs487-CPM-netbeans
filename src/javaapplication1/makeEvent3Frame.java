@@ -104,7 +104,7 @@ public class makeEvent3Frame extends javax.swing.JFrame {
         HttpPost poster = new HttpPost();
         
         String JSONData = converter.toJSONEvent(tempEvent);
-        String serverResponse = poster.executePostEvent(JSONData);
+        String serverResponse = poster.executePost(JSONData, "/addevent");
         
         System.out.println("server says: "+serverResponse);
         

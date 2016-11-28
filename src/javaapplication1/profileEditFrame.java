@@ -314,15 +314,15 @@ public class profileEditFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Account tempAcc = new Account(googleID);
-        tempAcc.setName(jTextField1+","+jTextField2+","+jTextField3);
-        tempAcc.setAddress(jTextField4+","+jTextField5+","+jTextField6+","+jTextField7);
+        tempAcc.setName(jTextField1.getText()+","+jTextField2.getText()+","+jTextField3.getText());
+        tempAcc.setAddress(jTextField4.getText()+","+jTextField5.getText()+","+jTextField6.getText()+","+jTextField7.getText());
         
         JSONConverter converter = new JSONConverter();
         HttpPost poster = new HttpPost();
         String serverResponse = "not a valid response";
         
         String JSONData = converter.toJSONAccount(tempAcc);
-        serverResponse = poster.executePostAcc(JSONData);
+        serverResponse = poster.executePost(JSONData, "/login");
         
         System.out.println("server says: "+serverResponse);
         

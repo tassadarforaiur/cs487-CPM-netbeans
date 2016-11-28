@@ -20,86 +20,11 @@ public class HttpPost{
     private String Port = ":4870";
     private String After = "/login";
 
-    protected String executePostAcc(String... params) {
+    protected String executePost(String... params) {
 
         String JsonResponse = null;
         String JsonDATA = params[0];
-        After = "/login";
-
-        HttpURLConnection urlConnection = null;
-        BufferedReader reader = null;
-
-        try{
-            URL url = null;
-            try {
-                url = new URL(IP + Port + After);//params[0]);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setDoOutput(true);
-            urlConnection.setRequestMethod("POST");
-            urlConnection.setRequestProperty("Content-Type", "application/json");
-            urlConnection.setRequestProperty("Accept", "application/json");
-
-            //set headers and methods
-            Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
-            writer.write(JsonDATA);
-            writer.close();
-
-            InputStream inputStream = urlConnection.getInputStream();
-
-            StringBuffer buffer = new StringBuffer();
-            if(inputStream == null){
-                return null;
-            }
-
-            reader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String inputLine;
-
-            while((inputLine = reader.readLine()) != null)
-                buffer.append(inputLine+ "\n");
-            if(buffer.length() == 0){
-                //stream was empty return 0;
-                return null;
-            }
-
-            JsonResponse = buffer.toString();
-            //response data
-            System.out.println("Response data " +  "-- " + JsonResponse);
-
-            return JsonResponse;
-
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if(urlConnection != null){
-                urlConnection.disconnect();
-            }if(reader != null){
-                try{
-                    reader.close();
-                }catch (final IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return null;
-    }
-    
-    protected String executePostEvent(String... params) {
-
-        String JsonResponse = null;
-        String JsonDATA = params[0];
-        After = "/addevent";
+        After = params[1];
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;

@@ -222,7 +222,7 @@ public class Signin {
         String serverResponse = "not a valid response";
         
         String JSONData = converter.toJSONGAccount(tempAcc);
-        serverResponse = poster.executePostAcc(JSONData);
+        serverResponse = poster.executePost(JSONData, "/login");
         
         System.out.println("server says: "+serverResponse);
         
