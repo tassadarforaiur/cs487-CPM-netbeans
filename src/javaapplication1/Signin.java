@@ -221,13 +221,13 @@ public class Signin {
         Account tempAcc = new Account(gplusId);
         String serverResponse = "not a valid response";
         
-        String JSONData = converter.toJSONAccount(tempAcc);
+        String JSONData = converter.toJSONGAccount(tempAcc);
         serverResponse = poster.executePostAcc(JSONData);
         
         System.out.println("server says: "+serverResponse);
         
-        profileViewFrame pVF = new profileViewFrame(gplusId);
-        pVF.setVisible(true);
+        mainMenuFrame mMF = new mainMenuFrame(gplusId);
+        mMF.setVisible(true);
         
       } catch (TokenResponseException e) {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
