@@ -48,7 +48,7 @@ public class makeEvent3Frame extends javax.swing.JFrame {
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         label1.setText("Choose a Map Image (.jpg only)");
 

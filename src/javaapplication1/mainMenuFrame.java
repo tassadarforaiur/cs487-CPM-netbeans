@@ -18,6 +18,7 @@ public class mainMenuFrame extends javax.swing.JFrame {
      * Creates new form mainMenuFrame
      */
     public mainMenuFrame() {
+        googleID="testID";
         initComponents();
     }
     

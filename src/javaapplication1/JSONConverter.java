@@ -86,20 +86,25 @@ public class JSONConverter {
             JsonArray attendees = gson.toJsonTree(ev.getAttendees()).getAsJsonArray();
             String scheduleJSON = gson.toJson(ev.getSchedule());
             String attendeesJSON = gson.toJson(ev.getAttendees());
+            String attendeesString = ev.getAttendeesString();
+            String scheduleString = ev.getScheduleString();
             
-            JSONObject accObj = new JSONObject();
+            JSONObject evObj = new JSONObject();
                        
-            accObj.put("title", ev.getTitle());
-            accObj.put("description", ev.getDescription());
-            accObj.put("start", ev.getFormattedStart());
-            accObj.put("end", ev.getFormattedEnd());
-            accObj.put("location", ev.getLocation());
-            accObj.put("register_link", ev.getRegisterLink());
-            accObj.put("image", ev.getImageFN());
-            accObj.put("schedule", scheduleJSON);
-            accObj.put("attendees", attendeesJSON);
+            evObj.put("title", ev.getTitle());
+            evObj.put("description", ev.getDescription());
+            evObj.put("start", ev.getFormattedStart());
+            evObj.put("end", ev.getFormattedEnd());
+            evObj.put("location", ev.getLocation());
+            evObj.put("register_link", ev.getRegisterLink());
+            evObj.put("image", ev.getImageFN());
+            evObj.put("events", scheduleString);
+            evObj.put("attendees", attendeesString);
+            evObj.put("organizer", ev.getHostID());
+            //accObj.put("events", scheduleJSON);
+            //accObj.put("attendees", attendeesJSON);
 
-            return accObj.toString();
+            return evObj.toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -116,6 +121,8 @@ public class JSONConverter {
             title = evObj.getString("title");
             location = evObj.getString("location");
             description = evObj.getString("description");
+            String schedule = evObj.getString("events");
+            String attendees = evObj.getString("attendees");
             
             Date start = df.parse(evObj.getString("start"));
             Date end = df.parse(evObj.getString("end"));
@@ -124,7 +131,10 @@ public class JSONConverter {
             tempEv.setStart(start);
             tempEv.setEnd(end);
             
-            Gson gson = new Gson();
+            tempEv.setScheduleString(schedule);
+            tempEv.setAttendeesString(attendees);
+            
+            /*Gson gson = new Gson();
 
             @SuppressWarnings("serial")
             Type collectionType = new TypeToken<ArrayList<String>>() {
@@ -138,7 +148,7 @@ public class JSONConverter {
             }.getType();
             ArrayList<String> tempEventScheduleInfo = gson.fromJson(evObj.getString("schedule"), collectionType2);  
             
-            tempEv.setAttendees(tempEventScheduleInfo);
+            tempEv.setAttendees(tempEventScheduleInfo);*/
             
 
             return tempEv;

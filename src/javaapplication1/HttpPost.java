@@ -99,7 +99,7 @@ public class HttpPost{
 
         String JsonResponse = null;
         String JsonDATA = params[0];
-        After = "/event";
+        After = "/addevent";
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;

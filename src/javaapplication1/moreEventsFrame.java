@@ -150,7 +150,7 @@ public class moreEventsFrame extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         close();
-        makeEventFrame mkEF = new makeEventFrame();
+        makeEventFrame mkEF = new makeEventFrame(googleID);
         mkEF.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

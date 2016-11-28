@@ -11,7 +11,7 @@ public class Event{
 
     private Calendar start= Calendar.getInstance();
     private Calendar end = Calendar.getInstance();
-    private String title, status="inactive", location, description, hostID, eventID, imageFN, registerLink;
+    private String title, status="inactive", location, description, hostID, eventID, imageFN, registerLink,attendeesString,scheduleString;
     private DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");
     private ArrayList<String> schedule = new ArrayList<>(); 
     private ArrayList<String> attendees = new ArrayList<>();    
@@ -148,13 +148,29 @@ public class Event{
     public ArrayList<String> getAttendees() {
         return attendees;
     }
+    
+    public String getAttendeesString(){
+        return attendeesString;
+    }
+    
+    public String getScheduleString(){
+        return scheduleString;
+    }
+    
+    public void setAttendeesString(String aS){
+        this.attendeesString= aS;
+    }
+    
+    public void setScheduleString(String sS){
+        this.scheduleString = sS;
+    }
 
     public void setHostID(String hID){
         this.hostID=hID;
     }
     
-    public void setAttendees(ArrayList<String> attendees) {
-        this.attendees = attendees;
+    public void setAttendees(ArrayList<String> a) {
+        this.attendees = a;
     }
 
     public void setRegisterLink(String registerLink) {
