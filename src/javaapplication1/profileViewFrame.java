@@ -17,8 +17,22 @@ public class profileViewFrame extends javax.swing.JFrame {
     /**
      * Creates new form profileViewFrame
      */
+    
     public profileViewFrame(){
         initComponents();
+        Account tempAcc = new Account(googleID);
+        String tempName = tempAcc.getName();
+        String[] nameArray = tempName.split(",");
+        String tempAddress = tempAcc.getAddress();
+        String[] addressArray = tempAddress.split(",");
+        jTextField1.setText(nameArray[0]);
+        jTextField2.setText(nameArray[1]);
+        jTextField3.setText(nameArray[2]);
+        jTextField4.setText(addressArray[0]);
+        jTextField5.setText(addressArray[1]);
+        jTextField6.setText(addressArray[2]);
+        jTextField7.setText(addressArray[3]);
+                
     }
     
     private Account tempAcc;
@@ -53,8 +67,7 @@ public class profileViewFrame extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextField4 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jTextField6 = new javax.swing.JTextField();
@@ -133,9 +146,7 @@ public class profileViewFrame extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("addrStreet"));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextField4.setText("jTextField4");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -143,14 +154,15 @@ public class profileViewFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("addrStateInitials"));
@@ -359,8 +371,15 @@ public class profileViewFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new profileViewFrame().setVisible(true);
+
+                
             }
+            
         });
+         
+             
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -375,11 +394,10 @@ public class profileViewFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
