@@ -28,10 +28,9 @@ public class makeEventFrame extends javax.swing.JFrame {
 <span class="nc" id="L28">    }</span>
     
     public void close(){
-
-<span class="nc" id="L32">    WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);</span>
-<span class="nc" id="L33">    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);</span>
-<span class="nc" id="L34">    }</span>
+<span class="nc" id="L31">        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);</span>
+<span class="nc" id="L32">        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);</span>
+<span class="nc" id="L33">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,136 +41,234 @@ public class makeEventFrame extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L45">        jTextField1 = new javax.swing.JTextField();</span>
-<span class="nc" id="L46">        jFormattedTextField1 = new javax.swing.JFormattedTextField();</span>
-<span class="nc" id="L47">        jFormattedTextField2 = new javax.swing.JFormattedTextField();</span>
-<span class="nc" id="L48">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L49">        jTextArea1 = new javax.swing.JTextArea();</span>
-<span class="nc" id="L50">        jScrollPane2 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L51">        jTextArea2 = new javax.swing.JTextArea();</span>
-<span class="nc" id="L52">        jButton1 = new javax.swing.JButton();</span>
-<span class="nc" id="L53">        jButton2 = new javax.swing.JButton();</span>
+<span class="nc" id="L44">        jTextField1 = new javax.swing.JTextField();</span>
+<span class="nc" id="L45">        startDayField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L46">        endDayField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L47">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L48">        jTextArea1 = new javax.swing.JTextArea();</span>
+<span class="nc" id="L49">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L50">        jTextArea2 = new javax.swing.JTextArea();</span>
+<span class="nc" id="L51">        jButton1 = new javax.swing.JButton();</span>
+<span class="nc" id="L52">        jButton2 = new javax.swing.JButton();</span>
+<span class="nc" id="L53">        startMonthField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L54">        startYearField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L55">        endMonthField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L56">        endYearField = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L57">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L58">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L59">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L60">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="nc" id="L62">        Title = new java.awt.Label();</span>
+<span class="nc" id="L63">        jLabel6 = new javax.swing.JLabel();</span>
+<span class="nc" id="L64">        jLabel7 = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L55">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L66">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
 
-<span class="nc" id="L57">        jTextField1.setText(&quot;Title&quot;);</span>
-<span class="nc" id="L58">        jTextField1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L68">        jTextField1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L60">                jTextField1ActionPerformed(evt);</span>
-<span class="nc" id="L61">            }</span>
+<span class="nc" id="L70">                jTextField1ActionPerformed(evt);</span>
+<span class="nc" id="L71">            }</span>
         });
 
-<span class="nc" id="L64">        jFormattedTextField1.setText(&quot;Starts&quot;);</span>
-<span class="nc" id="L65">        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L74">        startDayField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
+<span class="nc" id="L75">        startDayField.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L67">                jFormattedTextField1ActionPerformed(evt);</span>
-<span class="nc" id="L68">            }</span>
+<span class="nc" id="L77">                startDayFieldActionPerformed(evt);</span>
+<span class="nc" id="L78">            }</span>
         });
 
-<span class="nc" id="L71">        jFormattedTextField2.setText(&quot;Ends&quot;);</span>
+<span class="nc" id="L81">        endDayField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
 
-<span class="nc" id="L73">        jTextArea1.setColumns(20);</span>
-<span class="nc" id="L74">        jTextArea1.setRows(5);</span>
-<span class="nc" id="L75">        jTextArea1.setText(&quot;Details\n&quot;);</span>
-<span class="nc" id="L76">        jScrollPane1.setViewportView(jTextArea1);</span>
+<span class="nc" id="L83">        jTextArea1.setColumns(20);</span>
+<span class="nc" id="L84">        jTextArea1.setRows(5);</span>
+<span class="nc" id="L85">        jScrollPane1.setViewportView(jTextArea1);</span>
 
-<span class="nc" id="L78">        jTextArea2.setColumns(20);</span>
-<span class="nc" id="L79">        jTextArea2.setRows(5);</span>
-<span class="nc" id="L80">        jTextArea2.setText(&quot;Location\n&quot;);</span>
-<span class="nc" id="L81">        jScrollPane2.setViewportView(jTextArea2);</span>
+<span class="nc" id="L87">        jTextArea2.setColumns(20);</span>
+<span class="nc" id="L88">        jTextArea2.setRows(5);</span>
+<span class="nc" id="L89">        jScrollPane2.setViewportView(jTextArea2);</span>
 
-<span class="nc" id="L83">        jButton1.setText(&quot;Make Event&quot;);</span>
-<span class="nc" id="L84">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L91">        jButton1.setText(&quot;Next Step&quot;);</span>
+<span class="nc" id="L92">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L86">                jButton1ActionPerformed(evt);</span>
-<span class="nc" id="L87">            }</span>
+<span class="nc" id="L94">                jButton1ActionPerformed(evt);</span>
+<span class="nc" id="L95">            }</span>
         });
 
-<span class="nc" id="L90">        jButton2.setText(&quot;Cancel&quot;);</span>
-<span class="nc" id="L91">        jButton2.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L98">        jButton2.setText(&quot;Cancel&quot;);</span>
+<span class="nc" id="L99">        jButton2.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L93">                jButton2ActionPerformed(evt);</span>
-<span class="nc" id="L94">            }</span>
+<span class="nc" id="L101">                jButton2ActionPerformed(evt);</span>
+<span class="nc" id="L102">            }</span>
         });
 
-<span class="nc" id="L97">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L98">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L99">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L100">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L101">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L102">                .addContainerGap()</span>
-<span class="nc" id="L103">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L104">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L105">                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L106">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L107">                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L108">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L109">                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L110">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L111">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L112">                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L113">                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L114">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L115">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L116">                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L117">                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
-<span class="nc" id="L118">                .addContainerGap(48, Short.MAX_VALUE))</span>
+<span class="nc" id="L105">        startMonthField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
+<span class="nc" id="L106">        startMonthField.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L108">                startMonthFieldActionPerformed(evt);</span>
+<span class="nc" id="L109">            }</span>
+        });
+
+<span class="nc" id="L112">        startYearField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
+<span class="nc" id="L113">        startYearField.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L115">                startYearFieldActionPerformed(evt);</span>
+<span class="nc" id="L116">            }</span>
+        });
+
+<span class="nc" id="L119">        endMonthField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
+
+<span class="nc" id="L121">        endYearField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(&quot;#0&quot;))));</span>
+
+<span class="nc" id="L123">        jLabel1.setText(&quot;Start&quot;);</span>
+
+<span class="nc" id="L125">        jLabel2.setText(&quot;End&quot;);</span>
+
+<span class="nc" id="L127">        jLabel3.setText(&quot;Day&quot;);</span>
+
+<span class="nc" id="L129">        jLabel4.setText(&quot;Month&quot;);</span>
+
+<span class="nc" id="L131">        jLabel5.setText(&quot;Year&quot;);</span>
+
+<span class="nc" id="L133">        Title.setText(&quot;Title&quot;);</span>
+
+<span class="nc" id="L135">        jLabel6.setText(&quot;Details&quot;);</span>
+
+<span class="nc" id="L137">        jLabel7.setText(&quot;Location&quot;);</span>
+
+<span class="nc" id="L139">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L140">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L141">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L142">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L143">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L144">                .addContainerGap()</span>
+<span class="nc" id="L145">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L146">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L147">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L148">                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L149">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L150">                                .addGap(10, 10, 10)</span>
+<span class="nc" id="L151">                                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L152">                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L153">                            .addComponent(jLabel6))</span>
+<span class="nc" id="L154">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)</span>
+<span class="nc" id="L155">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L156">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L157">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L158">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L159">                                        .addComponent(jLabel2)</span>
+<span class="nc" id="L160">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L161">                                        .addComponent(endDayField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L162">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L163">                                        .addComponent(jLabel1)</span>
+<span class="nc" id="L164">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L165">                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L166">                                            .addComponent(jLabel3)</span>
+<span class="nc" id="L167">                                            .addComponent(startDayField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="nc" id="L168">                                .addGap(10, 10, 10)</span>
+<span class="nc" id="L169">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L170">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L171">                                        .addComponent(endMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L172">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L173">                                        .addComponent(endYearField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L174">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L175">                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L176">                                            .addComponent(startMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L177">                                            .addComponent(jLabel4))</span>
+<span class="nc" id="L178">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L179">                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L180">                                            .addComponent(jLabel5)</span>
+<span class="nc" id="L181">                                            .addComponent(startYearField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))</span>
+<span class="nc" id="L182">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L183">                                .addGap(30, 30, 30)</span>
+<span class="nc" id="L184">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L185">                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L186">                                    .addComponent(jLabel7)))))</span>
+<span class="nc" id="L187">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L188">                        .addComponent(jButton1)</span>
+<span class="nc" id="L189">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L190">                        .addComponent(jButton2)))</span>
+<span class="nc" id="L191">                .addContainerGap())</span>
         );
-<span class="nc" id="L120">        layout.setVerticalGroup(</span>
-<span class="nc" id="L121">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L122">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L123">                .addContainerGap()</span>
-<span class="nc" id="L124">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L125">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L126">                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L127">                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L128">                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L129">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L130">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L131">                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L132">                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L133">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L134">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L135">                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L136">                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L137">                .addContainerGap(64, Short.MAX_VALUE))</span>
+<span class="nc" id="L193">        layout.setVerticalGroup(</span>
+<span class="nc" id="L194">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L195">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L196">                .addContainerGap(21, Short.MAX_VALUE)</span>
+<span class="nc" id="L197">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L198">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L199">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L200">                            .addComponent(jLabel3)</span>
+<span class="nc" id="L201">                            .addComponent(jLabel4)</span>
+<span class="nc" id="L202">                            .addComponent(jLabel5))</span>
+<span class="nc" id="L203">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L204">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L205">                            .addComponent(startDayField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L206">                            .addComponent(startMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L207">                            .addComponent(startYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L208">                            .addComponent(jLabel1))</span>
+<span class="nc" id="L209">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L210">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L211">                            .addComponent(endDayField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L212">                            .addComponent(endMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L213">                            .addComponent(endYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L214">                            .addComponent(jLabel2)))</span>
+<span class="nc" id="L215">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L216">                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L217">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L218">                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L219">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L220">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L221">                    .addComponent(jLabel6)</span>
+<span class="nc" id="L222">                    .addComponent(jLabel7))</span>
+<span class="nc" id="L223">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L224">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L225">                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L226">                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L227">                .addGap(30, 30, 30)</span>
+<span class="nc" id="L228">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L229">                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L230">                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L231">                .addContainerGap())</span>
         );
 
-<span class="nc" id="L140">        pack();</span>
-<span class="nc" id="L141">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L234">        Title.getAccessibleContext().setAccessibleName(&quot;TitleLabel&quot;);</span>
+
+<span class="nc" id="L236">        pack();</span>
+<span class="nc" id="L237">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L145">    }//GEN-LAST:event_jTextField1ActionPerformed</span>
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-<span class="nc" id="L149">    }//GEN-LAST:event_jFormattedTextField1ActionPerformed</span>
+<span class="nc" id="L241">    }//GEN-LAST:event_jTextField1ActionPerformed</span>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-<span class="nc" id="L152">        Event tempEvent = new Event(googleID);</span>
-        //tempEvent.setTitle(jTextField1);
-        //tempEvent.setStart(jTextField5+&quot; &quot;+jTextField6+&quot; &quot;+jTextField7);
+<span class="nc" id="L244">        Event tempEvent = new Event(jTextField1.getText(), jTextArea1.getText(), Integer.parseInt(startYearField.getText()), Integer.parseInt(startMonthField.getText()), Integer.parseInt(startDayField.getText()), Integer.parseInt(endYearField.getText()), Integer.parseInt(endMonthField.getText()), Integer.parseInt(endDayField.getText()), jTextArea2.getText(), googleID);     </span>
+<span class="nc" id="L245">        tempEvent.appendAttendees(googleID);</span>
         
-<span class="nc" id="L156">        JSONConverter converter = new JSONConverter();</span>
-<span class="nc" id="L157">        HttpPost poster = new HttpPost();</span>
-<span class="nc" id="L158">        String serverResponse = &quot;not a valid response&quot;;</span>
+<span class="nc" id="L247">        close();</span>
         
-        //String JSONData = converter.toJSONEvent(tempEvent);
-        //serverResponse = poster.executePostEvent(JSONData);
-        
-<span class="nc" id="L163">        System.out.println(&quot;server says: &quot;+serverResponse);</span>
-        
-<span class="nc" id="L165">        close();</span>
+<span class="nc" id="L249">        makeEvent2Frame vME2F = new makeEvent2Frame(googleID,tempEvent);</span>
+<span class="nc" id="L250">        vME2F.setVisible(true);</span>
         //viewEventFrame vEF = new viewEventFrame(googleID);
         //vEF.setVisible(true);
-<span class="nc" id="L168">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+<span class="nc" id="L253">    }//GEN-LAST:event_jButton1ActionPerformed</span>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<span class="nc" id="L171">        close();</span>
-<span class="nc" id="L172">        moreEventsFrame mEF = new moreEventsFrame(googleID);</span>
-<span class="nc" id="L173">        mEF.setVisible(true);</span>
-<span class="nc" id="L174">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+<span class="nc" id="L256">        close();</span>
+<span class="nc" id="L257">        moreEventsFrame mEF = new moreEventsFrame(googleID);</span>
+<span class="nc" id="L258">        mEF.setVisible(true);</span>
+<span class="nc" id="L259">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+
+    private void startDayFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startDayFieldActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L263">    }//GEN-LAST:event_startDayFieldActionPerformed</span>
+
+    private void startYearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startYearFieldActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L267">    }//GEN-LAST:event_startYearFieldActionPerformed</span>
+
+    private void startMonthFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMonthFieldActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L271">    }//GEN-LAST:event_startMonthFieldActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -183,41 +280,53 @@ public class makeEventFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L186" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L187" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L188">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L189">                    break;</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L285">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L286">                    break;</span>
                 }
             }
-<span class="nc" id="L192">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L193">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L194">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L195">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L196">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L197">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L198">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L199">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L200">        }</span>
+<span class="nc" id="L289">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L290">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L291">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L292">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L293">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L294">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L295">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L296">            java.util.logging.Logger.getLogger(makeEventFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L297">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L204">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L301">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L206">                new makeEventFrame().setVisible(true);</span>
-<span class="nc" id="L207">            }</span>
+<span class="nc" id="L303">                new makeEventFrame().setVisible(true);</span>
+<span class="nc" id="L304">            }</span>
         });
-<span class="nc" id="L209">    }</span>
+<span class="nc" id="L306">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label Title;
+    private javax.swing.JFormattedTextField endDayField;
+    private javax.swing.JFormattedTextField endMonthField;
+    private javax.swing.JFormattedTextField endYearField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JFormattedTextField startDayField;
+    private javax.swing.JFormattedTextField startMonthField;
+    private javax.swing.JFormattedTextField startYearField;
     // End of variables declaration//GEN-END:variables
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

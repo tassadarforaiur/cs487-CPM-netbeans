@@ -100,7 +100,7 @@ public class makeEvent2Frame extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         close();
-        //Event.setImage();
+        tempEvent.setImageFN("path/path.png");
         makeEvent2Frame vME2F = new makeEvent2Frame(googleID,tempEvent);
         vME2F.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed

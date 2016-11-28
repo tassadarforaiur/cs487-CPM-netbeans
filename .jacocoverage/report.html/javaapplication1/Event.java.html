@@ -1,130 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Event.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;JavaApplication1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">javaapplication1</a> &gt; <span class="el_source">Event.java</span></div><h1>Event.java</h1><pre class="source lang-java linenums"> package javaapplication1;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class Event{
 
-<span class="pc" id="L9">    private Calendar start= Calendar.getInstance();</span>
-<span class="pc" id="L10">    private Calendar end = Calendar.getInstance();</span>
-<span class="pc" id="L11">    private String title, status=&quot;inactive&quot;, location, description, hostID, eventID;</span>
-<span class="pc" id="L12">    private ArrayList&lt;Account&gt; attendees = new ArrayList&lt;&gt;();</span>
-<span class="pc" id="L13">    private ArrayList&lt;Event&gt; moderators = new ArrayList&lt;&gt;();</span>
-<span class="pc" id="L14">    private ArrayList&lt;Event&gt; hosts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L12">    private Calendar start= Calendar.getInstance();</span>
+<span class="nc" id="L13">    private Calendar end = Calendar.getInstance();</span>
+<span class="nc" id="L14">    private String title, status=&quot;inactive&quot;, location, description, hostID, eventID, imageFN, registerLink;</span>
+<span class="nc" id="L15">    private DateFormat df = new SimpleDateFormat(&quot;EEE MMM dd kk:mm:ss zzz yyyy&quot;);</span>
+<span class="nc" id="L16">    private ArrayList&lt;String&gt; schedule = new ArrayList&lt;&gt;(); </span>
+<span class="nc" id="L17">    private ArrayList&lt;String&gt; attendees = new ArrayList&lt;&gt;();    </span>
 
-<span class="nc" id="L16">    public Event(String t, String d, String l){</span>
-<span class="nc" id="L17">        title = &quot;TEDTalks&quot;;</span>
-<span class="nc" id="L18">        description = &quot;Educational&quot;;</span>
-<span class="nc" id="L19">        location=&quot;IIT MTCC&quot;;</span>
-<span class="nc" id="L20">        hostID=&quot;Teddy&quot;;</span>
-<span class="nc" id="L21">        eventID=&quot;eTED&quot;;</span>
-<span class="nc" id="L22">    }</span>
+<span class="nc" id="L19">    public Event(String t, String d, String l){</span>
+<span class="nc" id="L20">        title = &quot;TEDTalks&quot;;</span>
+<span class="nc" id="L21">        description = &quot;Educational&quot;;</span>
+<span class="nc" id="L22">        location=&quot;IIT MTCC&quot;;</span>
+<span class="nc" id="L23">        hostID=&quot;Teddy&quot;;</span>
+<span class="nc" id="L24">        eventID=&quot;eTED&quot;;</span>
+<span class="nc" id="L25">    }</span>
 
-<span class="fc" id="L24">    public Event(){</span>
-<span class="fc" id="L25">        title = &quot;TEDTalks&quot;;</span>
-<span class="fc" id="L26">        description = &quot;Educational&quot;;</span>
-<span class="fc" id="L27">        start.getInstance();</span>
-<span class="fc" id="L28">        start.add(Calendar.DATE, -3);</span>
-<span class="fc" id="L29">        end.getInstance();</span>
-<span class="fc" id="L30">        end.add(Calendar.DATE, 12);</span>
-<span class="fc" id="L31">        location=&quot;IIT MTCC&quot;;</span>
-<span class="fc" id="L32">        hostID=&quot;Teddy&quot;;</span>
-<span class="fc" id="L33">        eventID=&quot;eTED&quot;;</span>
-<span class="fc" id="L34">    }</span>
+<span class="nc" id="L27">    public Event(){</span>
+<span class="nc" id="L28">        title = &quot;TEDTalks&quot;;</span>
+<span class="nc" id="L29">        description = &quot;Educational&quot;;</span>
+<span class="nc" id="L30">        start.getInstance();</span>
+<span class="nc" id="L31">        start.add(Calendar.DATE, -3);</span>
+<span class="nc" id="L32">        end.getInstance();</span>
+<span class="nc" id="L33">        end.add(Calendar.DATE, 12);</span>
+<span class="nc" id="L34">        location=&quot;IIT MTCC&quot;;</span>
+<span class="nc" id="L35">        hostID=&quot;Teddy&quot;;</span>
+<span class="nc" id="L36">        eventID=&quot;eTED&quot;;</span>
+<span class="nc" id="L37">    }</span>
     
-<span class="nc" id="L36">    public Event(String hID){</span>
-<span class="nc" id="L37">        hostID=hID;</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L39">    public Event(String hID){</span>
+<span class="nc" id="L40">        hostID=hID;</span>
+<span class="nc" id="L41">    }</span>
 
-<span class="fc" id="L40">    public Event(String tt, String d, int sY, int sM, int sD, int eY, int eM, int eD, String l,String hID, String eID){</span>
-<span class="fc" id="L41">        title = tt;</span>
-<span class="fc" id="L42">        description = d;</span>
-<span class="fc" id="L43">        start.set(sY, sM, sD);</span>
-<span class="fc" id="L44">        end.set(eY, eM, eD);</span>
-<span class="fc" id="L45">        location=l;</span>
-<span class="fc" id="L46">        hostID=hID;</span>
-<span class="fc" id="L47">        eventID=eID;</span>
-<span class="fc" id="L48">    }</span>
+<span class="nc" id="L43">    public Event(String tt, String d, int sY, int sM, int sD, int eY, int eM, int eD, String l,String hID, String eID){</span>
+<span class="nc" id="L44">        title = tt;</span>
+<span class="nc" id="L45">        description = d;</span>
+<span class="nc" id="L46">        start.set(sY, sM, sD);</span>
+<span class="nc" id="L47">        end.set(eY, eM, eD);</span>
+<span class="nc" id="L48">        location=l;</span>
+<span class="nc" id="L49">        hostID=hID;</span>
+<span class="nc" id="L50">        eventID=eID;</span>
+<span class="nc" id="L51">    }</span>
+    
+<span class="nc" id="L53">    public Event(String tt, String d, int sY, int sM, int sD, int eY, int eM, int eD, String l, String hID){</span>
+<span class="nc" id="L54">        title = tt;</span>
+<span class="nc" id="L55">        description = d;</span>
+<span class="nc" id="L56">        start.set(sY, sM, sD);</span>
+<span class="nc" id="L57">        end.set(eY, eM, eD);</span>
+<span class="nc" id="L58">        location=l;</span>
+<span class="nc" id="L59">        hostID=hID;</span>
+<span class="nc" id="L60">    }</span>
 
+    public void appendSchedule(String a){
+<span class="nc" id="L63">        schedule.add(a);</span>
+<span class="nc" id="L64">    }</span>
+    
+    public void appendAttendees(Account a){
+<span class="nc" id="L67">        attendees.add(a.getGoogleID());</span>
+<span class="nc" id="L68">    }</span>
+    
+    public void appendAttendees(String aGID){
+<span class="nc" id="L71">        attendees.add(aGID);</span>
+<span class="nc" id="L72">    }</span>
+    
     public String toString(){
-<span class="nc" id="L51">        return &quot;&quot;+title+&quot;\n&quot;+description+&quot;\n&quot;+location+&quot;\n&quot;;</span>
-
+<span class="nc" id="L75">        return &quot;&quot;+title+&quot;\n&quot;+description+&quot;\n&quot;+location;</span>
     }
 
     //Takes the difference in Milliseconds(start-current)
     public void beginEvent(Calendar cal) {
-<span class="fc bfc" id="L57" title="All 2 branches covered.">        if(cal.compareTo(start)&gt;0){</span>
-<span class="fc" id="L58">            status=&quot;active&quot;;</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if(cal.compareTo(start)&gt;0){</span>
+<span class="nc" id="L81">            status=&quot;active&quot;;</span>
         }else{
-<span class="fc" id="L60">            status=&quot;inactive&quot;;</span>
+<span class="nc" id="L83">            status=&quot;inactive&quot;;</span>
         }
-<span class="fc" id="L62">    }</span>
+<span class="nc" id="L85">    }</span>
 
     //Takes the difference in Milliseconds(current-end)
     public void endEvent(Calendar cal) {
-<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(end.compareTo(cal)&lt;0){</span>
-<span class="fc" id="L67">            status=&quot;inactive&quot;;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(end.compareTo(cal)&lt;0){</span>
+<span class="nc" id="L90">            status=&quot;inactive&quot;;</span>
         }else{
-<span class="fc" id="L69">            status=&quot;active&quot;;</span>
+<span class="nc" id="L92">            status=&quot;active&quot;;</span>
         }
-<span class="fc" id="L71">    }</span>
+<span class="nc" id="L94">    }</span>
 
     public String getTitle(){
-<span class="nc" id="L74">        return this.title;</span>
+<span class="nc" id="L97">        return this.title;</span>
     }
 
     public String getDescription(){
-<span class="nc" id="L78">        return this.description;</span>
+<span class="nc" id="L101">        return this.description;</span>
     }
 
     public String getLocation(){
-<span class="nc" id="L82">        return this.getLocation();</span>
+<span class="nc" id="L105">        return this.location;</span>
     }
 
     public Calendar getStart(){
-<span class="nc" id="L86">        return this.start;</span>
+<span class="nc" id="L109">        return this.start;</span>
+    }
+    
+    public String getFormattedStart(){
+<span class="nc" id="L113">            return df.format(this.start.getTime());</span>
     }
 
     public Calendar getEnd(){
-<span class="nc" id="L90">        return this.end;</span>
+<span class="nc" id="L117">        return this.end;</span>
+    }
+    
+    public String getFormattedEnd(){
+<span class="nc" id="L121">            return df.format(this.end.getTime());</span>
     }
 
     public String getStatus(){
-<span class="fc" id="L94">        return this.status;</span>
+<span class="nc" id="L125">        return this.status;</span>
     }
 
     public String getHostID(){
-<span class="nc" id="L98">        return this.hostID;</span>
+<span class="nc" id="L129">        return this.hostID;</span>
     }
 
     public String getEventID(){
-<span class="fc" id="L102">        return this.eventID;</span>
+<span class="nc" id="L133">        return this.eventID;</span>
     }
     
+    public String getImageFN(){
+<span class="nc" id="L137">        return this.imageFN;</span>
+    }
+    
+    public ArrayList&lt;String&gt; getSchedule(){
+<span class="nc" id="L141">        return this.schedule;</span>
+    }
+
+    public String getRegisterLink() {
+<span class="nc" id="L145">        return registerLink;</span>
+    }
+    
+    public ArrayList&lt;String&gt; getAttendees() {
+<span class="nc" id="L149">        return attendees;</span>
+    }
+
+    public void setHostID(String hID){
+<span class="nc" id="L153">        this.hostID=hID;</span>
+<span class="nc" id="L154">    }</span>
+    
+    public void setAttendees(ArrayList&lt;String&gt; attendees) {
+<span class="nc" id="L157">        this.attendees = attendees;</span>
+<span class="nc" id="L158">    }</span>
+
+    public void setRegisterLink(String registerLink) {
+<span class="nc" id="L161">        this.registerLink = registerLink;</span>
+<span class="nc" id="L162">    }    </span>
+    
+    public void setSchedule(ArrayList&lt;String&gt; s){
+<span class="nc" id="L165">        schedule=s;</span>
+<span class="nc" id="L166">    }</span>
+    
+    public void setImageFN(String i){
+<span class="nc" id="L169">        imageFN=i;</span>
+<span class="nc" id="L170">    }</span>
+    
     public void setTitle(String t){
-<span class="nc" id="L106">        title=t;</span>
-<span class="nc" id="L107">    }</span>
+<span class="nc" id="L173">        title=t;</span>
+<span class="nc" id="L174">    }</span>
 
     public void setDescription(String d){
-<span class="nc" id="L110">        description=d;</span>
-<span class="nc" id="L111">    }</span>
+<span class="nc" id="L177">        description=d;</span>
+<span class="nc" id="L178">    }</span>
 
     public void setLocation(String l){
-<span class="nc" id="L114">        location=l;</span>
-<span class="nc" id="L115">    }</span>
+<span class="nc" id="L181">        location=l;</span>
+<span class="nc" id="L182">    }</span>
 
     public void setStart(int sD, int sM, int sY){
-<span class="nc" id="L118">        start.set(sY, sM, sD);</span>
-<span class="nc" id="L119">    }</span>
+<span class="nc" id="L185">        start.set(sY, sM, sD);</span>
+<span class="nc" id="L186">    }</span>
+    
+    public void setStart(Date s){
+<span class="nc" id="L189">        start.setTime(s);</span>
+<span class="nc" id="L190">    }</span>
 
     public void setEnd(int eD, int eM, int eY){
-<span class="nc" id="L122">        end.set(eY, eM, eD);</span>
-<span class="nc" id="L123">    }</span>
+<span class="nc" id="L193">        end.set(eY, eM, eD);</span>
+<span class="nc" id="L194">    }</span>
+    
+    public void setEnd(Date e){
+<span class="nc" id="L197">        end.setTime(e);</span>
+<span class="nc" id="L198">    }</span>
 
     public void setEventID(String eID){
-<span class="nc" id="L126">        eventID=eID;</span>
-<span class="nc" id="L127">    }</span>
+<span class="nc" id="L201">        eventID=eID;</span>
+<span class="nc" id="L202">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "http://www.netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Edit">
+            <file name="org-netbeans-modules-scm-SCMAction.instance"/>
+        </folder>
+    </folder>
+    <folder name="OptionsDialog">
+        <folder name="Advanced">
+            <file name="org-netbeans-modules-scm-options-ScmAdvancedOption.instance"/>
+        </folder>
+    </folder>
+    <folder name="Toolbars">
+        <folder name="Edit">
+            <file name="org-netbeans-modules-scm-CopyFQNAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Edit/org-netbeans-modules-scm-SCMAction.instance"/>
+                <attr name="position" intvalue="0"/>
+            </file>
+        </folder>
+    </folder>    
+</filesystem>

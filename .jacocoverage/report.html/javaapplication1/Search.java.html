@@ -6,23 +6,23 @@ public class Search {
 
     private String key;
 
-<span class="fc" id="L9">    public Search(){</span>
-<span class="fc" id="L10">        key = &quot;testKey&quot;;</span>
-<span class="fc" id="L11">    }</span>
+<span class="nc" id="L9">    public Search(){</span>
+<span class="nc" id="L10">        key = &quot;testKey&quot;;</span>
+<span class="nc" id="L11">    }</span>
 
 <span class="nc" id="L13">    public Search(String k){</span>
 <span class="nc" id="L14">        key=k;</span>
 <span class="nc" id="L15">    }</span>
 
     public ArrayList&lt;Event&gt; searchID(ArrayList&lt;Event&gt; e, String keyID){
-<span class="fc" id="L18">        ArrayList&lt;Event&gt; eventResults=new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L18">        ArrayList&lt;Event&gt; eventResults=new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L20" title="All 2 branches covered.">        for(int i=0; i&lt;e.size();i++){</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">            if(e.get(i).getEventID().equals(keyID)){</span>
-<span class="fc" id="L22">                eventResults.add(e.get(i));</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        for(int i=0; i&lt;e.size();i++){</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            if(e.get(i).getEventID().equals(keyID)){</span>
+<span class="nc" id="L22">                eventResults.add(e.get(i));</span>
             }
         }
-<span class="fc" id="L25">        return eventResults;</span>
+<span class="nc" id="L25">        return eventResults;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

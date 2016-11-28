@@ -109,8 +109,8 @@ public class makeEvent3Frame extends javax.swing.JFrame {
         System.out.println("server says: "+serverResponse);
         
         close();
-        //viewEventFrame vEF = new viewEventFrame(googleID);
-        //vEF.setVisible(true);
+        viewEventFrame vEF = new viewEventFrame(googleID);
+        vEF.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     /**

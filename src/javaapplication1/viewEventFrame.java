@@ -17,6 +17,14 @@ public class viewEventFrame extends javax.swing.JFrame {
     public viewEventFrame() {
         initComponents();
     }
+    
+    private String googleID;
+    //private Event tempEvent;
+    public viewEventFrame(String gID){//Event e) {
+        googleID=gID;
+        //tempEvent=e;
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

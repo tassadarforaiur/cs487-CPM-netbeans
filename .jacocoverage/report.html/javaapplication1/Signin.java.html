@@ -221,13 +221,13 @@ import javax.servlet.http.HttpServletResponse;
 <span class="nc" id="L221">        Account tempAcc = new Account(gplusId);</span>
 <span class="nc" id="L222">        String serverResponse = &quot;not a valid response&quot;;</span>
         
-<span class="nc" id="L224">        String JSONData = converter.toJSONAccount(tempAcc);</span>
+<span class="nc" id="L224">        String JSONData = converter.toJSONGAccount(tempAcc);</span>
 <span class="nc" id="L225">        serverResponse = poster.executePostAcc(JSONData);</span>
         
 <span class="nc" id="L227">        System.out.println(&quot;server says: &quot;+serverResponse);</span>
         
-<span class="nc" id="L229">        profileViewFrame pVF = new profileViewFrame(gplusId);</span>
-<span class="nc" id="L230">        pVF.setVisible(true);</span>
+<span class="nc" id="L229">        mainMenuFrame mMF = new mainMenuFrame(gplusId);</span>
+<span class="nc" id="L230">        mMF.setVisible(true);</span>
         
 <span class="nc" id="L232">      } catch (TokenResponseException e) {</span>
 <span class="nc" id="L233">        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);</span>
