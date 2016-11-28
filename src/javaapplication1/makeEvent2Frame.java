@@ -5,6 +5,9 @@
  */
 package javaapplication1;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author manny
@@ -16,6 +19,19 @@ public class makeEvent2Frame extends javax.swing.JFrame {
      */
     public makeEvent2Frame() {
         initComponents();
+    }
+    
+    private String googleID;
+    private Event tempEvent;
+    public makeEvent2Frame(String gID, Event e) {
+        googleID=gID;
+        tempEvent=e;
+        initComponents();
+    }
+    
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
 
     /**
@@ -83,7 +99,10 @@ public class makeEvent2Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
+        close();
+        //Event.setImage();
+        makeEvent2Frame vME2F = new makeEvent2Frame(googleID,tempEvent);
+        vME2F.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     /**

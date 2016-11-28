@@ -49,6 +49,15 @@ public class Event{
         hostID=hID;
         eventID=eID;
     }
+    
+    public Event(String tt, String d, int sY, int sM, int sD, int eY, int eM, int eD, String l, String hID){
+        title = tt;
+        description = d;
+        start.set(sY, sM, sD);
+        end.set(eY, eM, eD);
+        location=l;
+        hostID=hID;
+    }
 
     public void appendSchedule(String a){
         schedule.add(a);

@@ -28,9 +28,8 @@ public class makeEventFrame extends javax.swing.JFrame {
     }
     
     public void close(){
-
-    WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
-    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
 
     /**
@@ -242,20 +241,12 @@ public class makeEventFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Event tempEvent = new Event(googleID);
-        //tempEvent.setTitle(jTextField1);
-        //tempEvent.setStart(jTextField5+" "+jTextField6+" "+jTextField7);
-        
-        JSONConverter converter = new JSONConverter();
-        HttpPost poster = new HttpPost();
-        String serverResponse = "not a valid response";
-        
-        //String JSONData = converter.toJSONEvent(tempEvent);
-        //serverResponse = poster.executePostEvent(JSONData);
-        
-        System.out.println("server says: "+serverResponse);
+        Event tempEvent = new Event(jTextField1, jTextArea1, startYearField, startMonthField, startDayField, endYearField, endMonthField, endDayField, jTextArea2, googleID);     
         
         close();
+        
+        makeEvent2Frame vME2F = new makeEvent2Frame(googleID,tempEvent);
+        vME2F.setVisible(true);
         //viewEventFrame vEF = new viewEventFrame(googleID);
         //vEF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

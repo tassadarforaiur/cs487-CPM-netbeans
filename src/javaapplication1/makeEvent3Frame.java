@@ -5,6 +5,9 @@
  */
 package javaapplication1;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author manny
@@ -16,6 +19,19 @@ public class makeEvent3Frame extends javax.swing.JFrame {
      */
     public makeEvent3Frame() {
         initComponents();
+    }
+    
+    private String googleID;
+    private Event tempEvent;
+    public makeEvent3Frame(String gID, Event e) {
+        googleID=gID;
+        tempEvent=e;
+        initComponents();
+    }
+    
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
 
     /**
@@ -82,7 +98,19 @@ public class makeEvent3Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
+        JSONConverter converter = new JSONConverter();
+        converter.toJSONEvent(tempEvent);
+        //Event.setMap();
+        HttpPost poster = new HttpPost();
+        
+        String JSONData = converter.toJSONEvent(tempEvent);
+        String serverResponse = poster.executePostEvent(JSONData);
+        
+        System.out.println("server says: "+serverResponse);
+        
+        close();
+        //viewEventFrame vEF = new viewEventFrame(googleID);
+        //vEF.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed
 
     /**
