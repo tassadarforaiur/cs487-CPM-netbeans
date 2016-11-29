@@ -66,6 +66,20 @@ public class JSONConverter {
         return null;
     }
     
+    public static String toJSONGSAccount(String id) {
+
+        try {
+            JSONObject accObj = new JSONObject();
+            accObj.put("googleID", id);
+
+            return accObj.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    
     public static String toJSONEventTitle(String s){
         try {
             JSONObject evObj = new JSONObject();

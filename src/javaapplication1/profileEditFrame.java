@@ -315,9 +315,11 @@ public class profileEditFrame extends javax.swing.JFrame {
         String JSONData = converter.toJSONAccount(tempAcc);
         serverResponse = poster.executePost(JSONData, "/login");
         
+        Account tempAccount = converter.deserializeJSONAccount(serverResponse);
+        
         System.out.println("server says: "+serverResponse);
         
-        profileViewFrame pVF = new profileViewFrame(googleID);
+        profileViewFrame pVF = new profileViewFrame(googleID, tempAccount);
         pVF.setVisible(true);
         close();
     }//GEN-LAST:event_jButton1ActionPerformed

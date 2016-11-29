@@ -139,8 +139,19 @@ public class moreEventsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JSONConverter converter = new JSONConverter();
+        
+        HttpPost poster = new HttpPost();
+        
+        String JSONData = converter.toJSONGSAccount(googleID);
+        String serverResponse = poster.executePost(JSONData, "/login");
+        
+        System.out.println("server says: "+serverResponse);
+        
+        Account tempAccount=converter.deserializeJSONAccount(serverResponse);
+        
         close();
-        profileViewFrame pVF = new profileViewFrame(googleID);
+        profileViewFrame pVF = new profileViewFrame(googleID, tempAccount);
         pVF.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 

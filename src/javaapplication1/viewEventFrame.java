@@ -19,10 +19,10 @@ public class viewEventFrame extends javax.swing.JFrame {
     }
     
     private String googleID;
-    //private Event tempEvent;
-    public viewEventFrame(String gID){//Event e) {
+    private Event tempEvent;
+    public viewEventFrame(String gID, Event e) {
         googleID=gID;
-        //tempEvent=e;
+        tempEvent=e;
         initComponents();
     }
 

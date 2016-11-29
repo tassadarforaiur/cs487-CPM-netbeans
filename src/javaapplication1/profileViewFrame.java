@@ -37,8 +37,8 @@ public class profileViewFrame extends javax.swing.JFrame {
     
     private Account tempAcc;
     private String googleID;
-    public profileViewFrame(String gID){
-        tempAcc=new Account(gID);
+    public profileViewFrame(String gID, Account a){
+        tempAcc=a;
         googleID=gID;
         initComponents();
     }
