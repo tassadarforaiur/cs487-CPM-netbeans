@@ -132,7 +132,7 @@ public class JSONConverter {
         try {
             JSONObject evObj = new JSONObject(JSData);
 
-            title = evObj.getString("title");
+            title = evObj.getString("eventName");
             location = evObj.getString("location");
             description = evObj.getString("description");
             String schedule = evObj.getString("events");
