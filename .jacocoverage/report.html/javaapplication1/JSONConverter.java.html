@@ -66,120 +66,144 @@ import java.lang.reflect.Type;
 <span class="nc" id="L66">        return null;</span>
     }
     
+    public static String toJSONGSAccount(String id) {
+
+        try {
+<span class="nc" id="L72">            JSONObject accObj = new JSONObject();</span>
+<span class="nc" id="L73">            accObj.put(&quot;googleID&quot;, id);</span>
+
+<span class="nc" id="L75">            return accObj.toString();</span>
+<span class="nc" id="L76">        } catch (JSONException e) {</span>
+<span class="nc" id="L77">            e.printStackTrace();</span>
+        }
+
+<span class="nc" id="L80">        return null;</span>
+    }
+    
     public static String toJSONEventTitle(String s){
         try {
-<span class="nc" id="L71">            JSONObject evObj = new JSONObject();</span>
-<span class="nc" id="L72">            evObj.put(&quot;title&quot;, s);</span>
+<span class="nc" id="L85">            JSONObject evObj = new JSONObject();</span>
+<span class="nc" id="L86">            evObj.put(&quot;eventName&quot;, s);</span>
 
-<span class="nc" id="L74">            return evObj.toString();</span>
-<span class="nc" id="L75">        } catch (JSONException e) {</span>
-<span class="nc" id="L76">            e.printStackTrace();</span>
+<span class="nc" id="L88">            return evObj.toString();</span>
+<span class="nc" id="L89">        } catch (JSONException e) {</span>
+<span class="nc" id="L90">            e.printStackTrace();</span>
         }
-<span class="nc" id="L78">        return null;</span>
+<span class="nc" id="L92">        return null;</span>
     }
 
     public static String toJSONEvent(Event ev) {
 
         try {
-<span class="nc" id="L84">            Gson gson = new GsonBuilder().create();</span>
-<span class="nc" id="L85">            JsonArray schedule = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();</span>
-<span class="nc" id="L86">            JsonArray attendees = gson.toJsonTree(ev.getAttendees()).getAsJsonArray();</span>
-<span class="nc" id="L87">            String scheduleJSON = gson.toJson(ev.getSchedule());</span>
-<span class="nc" id="L88">            String attendeesJSON = gson.toJson(ev.getAttendees());</span>
+<span class="nc" id="L98">            Gson gson = new GsonBuilder().create();</span>
+<span class="nc" id="L99">            JsonArray schedule = gson.toJsonTree(ev.getSchedule()).getAsJsonArray();</span>
+<span class="nc" id="L100">            JsonArray attendees = gson.toJsonTree(ev.getAttendees()).getAsJsonArray();</span>
+<span class="nc" id="L101">            String scheduleJSON = gson.toJson(ev.getSchedule());</span>
+<span class="nc" id="L102">            String attendeesJSON = gson.toJson(ev.getAttendees());</span>
+<span class="nc" id="L103">            String attendeesString = ev.getAttendeesString();</span>
+<span class="nc" id="L104">            String scheduleString = ev.getScheduleString();</span>
             
-<span class="nc" id="L90">            JSONObject accObj = new JSONObject();</span>
+<span class="nc" id="L106">            JSONObject evObj = new JSONObject();</span>
                        
-<span class="nc" id="L92">            accObj.put(&quot;title&quot;, ev.getTitle());</span>
-<span class="nc" id="L93">            accObj.put(&quot;description&quot;, ev.getDescription());</span>
-<span class="nc" id="L94">            accObj.put(&quot;start&quot;, ev.getFormattedStart());</span>
-<span class="nc" id="L95">            accObj.put(&quot;end&quot;, ev.getFormattedEnd());</span>
-<span class="nc" id="L96">            accObj.put(&quot;location&quot;, ev.getLocation());</span>
-<span class="nc" id="L97">            accObj.put(&quot;register_link&quot;, ev.getRegisterLink());</span>
-<span class="nc" id="L98">            accObj.put(&quot;image&quot;, ev.getImageFN());</span>
-<span class="nc" id="L99">            accObj.put(&quot;schedule&quot;, scheduleJSON);</span>
-<span class="nc" id="L100">            accObj.put(&quot;attendees&quot;, attendeesJSON);</span>
+<span class="nc" id="L108">            evObj.put(&quot;eventName&quot;, ev.getTitle());</span>
+<span class="nc" id="L109">            evObj.put(&quot;description&quot;, ev.getDescription());</span>
+<span class="nc" id="L110">            evObj.put(&quot;start&quot;, ev.getFormattedStart());</span>
+<span class="nc" id="L111">            evObj.put(&quot;end&quot;, ev.getFormattedEnd());</span>
+<span class="nc" id="L112">            evObj.put(&quot;location&quot;, ev.getLocation());</span>
+<span class="nc" id="L113">            evObj.put(&quot;register_link&quot;, ev.getRegisterLink());</span>
+<span class="nc" id="L114">            evObj.put(&quot;image&quot;, ev.getImageFN());</span>
+<span class="nc" id="L115">            evObj.put(&quot;events&quot;, scheduleString);</span>
+<span class="nc" id="L116">            evObj.put(&quot;attendees&quot;, attendeesString);</span>
+<span class="nc" id="L117">            evObj.put(&quot;organizer&quot;, ev.getHostID());</span>
+            //accObj.put(&quot;events&quot;, scheduleJSON);
+            //accObj.put(&quot;attendees&quot;, attendeesJSON);
 
-<span class="nc" id="L102">            return accObj.toString();</span>
-<span class="nc" id="L103">        } catch (JSONException e) {</span>
-<span class="nc" id="L104">            e.printStackTrace();</span>
+<span class="nc" id="L121">            return evObj.toString();</span>
+<span class="nc" id="L122">        } catch (JSONException e) {</span>
+<span class="nc" id="L123">            e.printStackTrace();</span>
         }
 
-<span class="nc" id="L107">        return null;</span>
+<span class="nc" id="L126">        return null;</span>
     }
 
     public Event deserializeJSONEvent(String JSData) {
         Event tempEv;
 
         try {
-<span class="nc" id="L114">            JSONObject evObj = new JSONObject(JSData);</span>
+<span class="nc" id="L133">            JSONObject evObj = new JSONObject(JSData);</span>
 
-<span class="nc" id="L116">            title = evObj.getString(&quot;title&quot;);</span>
-<span class="nc" id="L117">            location = evObj.getString(&quot;location&quot;);</span>
-<span class="nc" id="L118">            description = evObj.getString(&quot;description&quot;);</span>
+<span class="nc" id="L135">            title = evObj.getString(&quot;eventName&quot;);</span>
+<span class="nc" id="L136">            location = evObj.getString(&quot;location&quot;);</span>
+<span class="nc" id="L137">            description = evObj.getString(&quot;description&quot;);</span>
+<span class="nc" id="L138">            String schedule = evObj.getString(&quot;events&quot;);</span>
+<span class="nc" id="L139">            String attendees = evObj.getString(&quot;attendees&quot;);</span>
             
-<span class="nc" id="L120">            Date start = df.parse(evObj.getString(&quot;start&quot;));</span>
-<span class="nc" id="L121">            Date end = df.parse(evObj.getString(&quot;end&quot;));</span>
+<span class="nc" id="L141">            Date start = df.parse(evObj.getString(&quot;start&quot;));</span>
+<span class="nc" id="L142">            Date end = df.parse(evObj.getString(&quot;end&quot;));</span>
 
-<span class="nc" id="L123">            tempEv = new Event(title, description, location);</span>
-<span class="nc" id="L124">            tempEv.setStart(start);</span>
-<span class="nc" id="L125">            tempEv.setEnd(end);</span>
+<span class="nc" id="L144">            tempEv = new Event(title, description, location);</span>
+<span class="nc" id="L145">            tempEv.setStart(start);</span>
+<span class="nc" id="L146">            tempEv.setEnd(end);</span>
             
-<span class="nc" id="L127">            Gson gson = new Gson();</span>
+<span class="nc" id="L148">            tempEv.setScheduleString(schedule);</span>
+<span class="nc" id="L149">            tempEv.setAttendeesString(attendees);</span>
+            
+            /*Gson gson = new Gson();
 
             @SuppressWarnings(&quot;serial&quot;)
-<span class="nc" id="L130">            Type collectionType = new TypeToken&lt;ArrayList&lt;String&gt;&gt;() {</span>
-<span class="nc" id="L131">            }.getType();</span>
-<span class="nc" id="L132">            ArrayList&lt;String&gt; tempEventAttendeeInfo = gson.fromJson(evObj.getString(&quot;attendees&quot;), collectionType);  </span>
+            Type collectionType = new TypeToken&lt;ArrayList&lt;String&gt;&gt;() {
+            }.getType();
+            ArrayList&lt;String&gt; tempEventAttendeeInfo = gson.fromJson(evObj.getString(&quot;attendees&quot;), collectionType);  
             
-<span class="nc" id="L134">            tempEv.setAttendees(tempEventAttendeeInfo);</span>
+            tempEv.setAttendees(tempEventAttendeeInfo);
             
             @SuppressWarnings(&quot;serial&quot;)
-<span class="nc" id="L137">            Type collectionType2 = new TypeToken&lt;ArrayList&lt;String&gt;&gt;() {</span>
-<span class="nc" id="L138">            }.getType();</span>
-<span class="nc" id="L139">            ArrayList&lt;String&gt; tempEventScheduleInfo = gson.fromJson(evObj.getString(&quot;schedule&quot;), collectionType2);  </span>
+            Type collectionType2 = new TypeToken&lt;ArrayList&lt;String&gt;&gt;() {
+            }.getType();
+            ArrayList&lt;String&gt; tempEventScheduleInfo = gson.fromJson(evObj.getString(&quot;schedule&quot;), collectionType2);  
             
-<span class="nc" id="L141">            tempEv.setAttendees(tempEventScheduleInfo);</span>
+            tempEv.setAttendees(tempEventScheduleInfo);*/
             
 
-<span class="nc" id="L144">            return tempEv;</span>
+<span class="nc" id="L168">            return tempEv;</span>
 
-<span class="nc" id="L146">        } catch (JSONException e) {</span>
-<span class="nc" id="L147">            e.printStackTrace();</span>
-<span class="nc" id="L148">        } catch (ParseException ex) {</span>
-<span class="nc" id="L149">            Logger.getLogger(JSONConverter.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L150">        }</span>
+<span class="nc" id="L170">        } catch (JSONException e) {</span>
+<span class="nc" id="L171">            e.printStackTrace();</span>
+<span class="nc" id="L172">        } catch (ParseException ex) {</span>
+<span class="nc" id="L173">            Logger.getLogger(JSONConverter.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L174">        }</span>
 
-<span class="nc" id="L152">        return null;</span>
+<span class="nc" id="L176">        return null;</span>
     }
 
     public Account deserializeJSONAccount(String JSData) {
         Account tempAcc;
 
         try {
-<span class="nc" id="L159">            JSONObject accObj = new JSONObject(JSData);</span>
+<span class="nc" id="L183">            JSONObject accObj = new JSONObject(JSData);</span>
 
-<span class="nc" id="L161">            name = accObj.getString(&quot;name&quot;);</span>
-<span class="nc" id="L162">            email = accObj.getString(&quot;email&quot;);</span>
-<span class="nc" id="L163">            phone = accObj.getString(&quot;phone&quot;);</span>
-<span class="nc" id="L164">            address = accObj.getString(&quot;address&quot;);</span>
+<span class="nc" id="L185">            name = accObj.getString(&quot;name&quot;);</span>
+<span class="nc" id="L186">            email = accObj.getString(&quot;email&quot;);</span>
+<span class="nc" id="L187">            phone = accObj.getString(&quot;phone&quot;);</span>
+<span class="nc" id="L188">            address = accObj.getString(&quot;address&quot;);</span>
 
-<span class="nc" id="L166">            Date result = df.parse(accObj.getString(&quot;date&quot;));</span>
+<span class="nc" id="L190">            Date result = df.parse(accObj.getString(&quot;date&quot;));</span>
 
-<span class="nc" id="L168">            tempAcc = new Account(name, email, phone, address);</span>
+<span class="nc" id="L192">            tempAcc = new Account(name, email, phone, address);</span>
 
-<span class="nc" id="L170">            tempAcc.setGoogleID(accObj.getString(&quot;googleID&quot;));</span>
+<span class="nc" id="L194">            tempAcc.setGoogleID(accObj.getString(&quot;googleID&quot;));</span>
             
-<span class="nc" id="L172">            tempAcc.setAccountOpening(result);</span>
+<span class="nc" id="L196">            tempAcc.setAccountOpening(result);</span>
 
-<span class="nc" id="L174">            return tempAcc;</span>
+<span class="nc" id="L198">            return tempAcc;</span>
 
-<span class="nc" id="L176">        } catch (JSONException e) {</span>
-<span class="nc" id="L177">            e.printStackTrace();</span>
-<span class="nc" id="L178">        } catch (ParseException e) {</span>
-<span class="nc" id="L179">            e.printStackTrace();</span>
-<span class="nc" id="L180">        }</span>
+<span class="nc" id="L200">        } catch (JSONException e) {</span>
+<span class="nc" id="L201">            e.printStackTrace();</span>
+<span class="nc" id="L202">        } catch (ParseException e) {</span>
+<span class="nc" id="L203">            e.printStackTrace();</span>
+<span class="nc" id="L204">        }</span>
 
-<span class="nc" id="L182">        return null;</span>
+<span class="nc" id="L206">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

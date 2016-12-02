@@ -20,11 +20,11 @@ import java.net.URL;
 <span class="nc" id="L20">    private String Port = &quot;:4870&quot;;</span>
 <span class="nc" id="L21">    private String After = &quot;/login&quot;;</span>
 
-    protected String executePostAcc(String... params) {
+    protected String executePost(String... params) {
 
 <span class="nc" id="L25">        String JsonResponse = null;</span>
 <span class="nc" id="L26">        String JsonDATA = params[0];</span>
-<span class="nc" id="L27">        After = &quot;/login&quot;;</span>
+<span class="nc" id="L27">        After = params[1];</span>
 
 <span class="nc" id="L29">        HttpURLConnection urlConnection = null;</span>
 <span class="nc" id="L30">        BufferedReader reader = null;</span>
@@ -93,81 +93,6 @@ import java.net.URL;
         }
 
 <span class="nc" id="L95">        return null;</span>
-    }
-    
-    protected String executePostEvent(String... params) {
-
-<span class="nc" id="L100">        String JsonResponse = null;</span>
-<span class="nc" id="L101">        String JsonDATA = params[0];</span>
-<span class="nc" id="L102">        After = &quot;/event&quot;;</span>
-
-<span class="nc" id="L104">        HttpURLConnection urlConnection = null;</span>
-<span class="nc" id="L105">        BufferedReader reader = null;</span>
-
-        try{
-<span class="nc" id="L108">            URL url = null;</span>
-            try {
-<span class="nc" id="L110">                url = new URL(IP + Port + After);//params[0]);</span>
-<span class="nc" id="L111">            } catch (MalformedURLException e) {</span>
-<span class="nc" id="L112">                e.printStackTrace();</span>
-<span class="nc" id="L113">            }</span>
-<span class="nc" id="L114">            urlConnection = (HttpURLConnection) url.openConnection();</span>
-<span class="nc" id="L115">            urlConnection.setDoOutput(true);</span>
-<span class="nc" id="L116">            urlConnection.setRequestMethod(&quot;POST&quot;);</span>
-<span class="nc" id="L117">            urlConnection.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);</span>
-<span class="nc" id="L118">            urlConnection.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);</span>
-
-            //set headers and methods
-<span class="nc" id="L121">            Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), &quot;UTF-8&quot;));</span>
-<span class="nc" id="L122">            writer.write(JsonDATA);</span>
-<span class="nc" id="L123">            writer.close();</span>
-
-<span class="nc" id="L125">            InputStream inputStream = urlConnection.getInputStream();</span>
-
-<span class="nc" id="L127">            StringBuffer buffer = new StringBuffer();</span>
-<span class="nc bnc" id="L128" title="All 2 branches missed.">            if(inputStream == null){</span>
-<span class="nc" id="L129">                return null;</span>
-            }
-
-<span class="nc" id="L132">            reader = new BufferedReader(new InputStreamReader(inputStream));</span>
-
-            String inputLine;
-
-<span class="nc bnc" id="L136" title="All 2 branches missed.">            while((inputLine = reader.readLine()) != null)</span>
-<span class="nc" id="L137">                buffer.append(inputLine+ &quot;\n&quot;);</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">            if(buffer.length() == 0){</span>
-                //stream was empty return 0;
-<span class="nc" id="L140">                return null;</span>
-            }
-
-<span class="nc" id="L143">            JsonResponse = buffer.toString();</span>
-            //response data
-<span class="nc" id="L145">            System.out.println(&quot;Response data &quot; +  &quot;-- &quot; + JsonResponse);</span>
-
-<span class="nc" id="L147">            return JsonResponse;</span>
-
-<span class="nc" id="L149">        } catch (UnsupportedEncodingException e) {</span>
-<span class="nc" id="L150">            e.printStackTrace();</span>
-<span class="nc" id="L151">        } catch (ProtocolException e) {</span>
-<span class="nc" id="L152">            e.printStackTrace();</span>
-<span class="nc" id="L153">        } catch (MalformedURLException e) {</span>
-<span class="nc" id="L154">            e.printStackTrace();</span>
-<span class="nc" id="L155">            throw new RuntimeException(e);</span>
-<span class="nc" id="L156">        } catch (IOException e) {</span>
-<span class="nc" id="L157">            e.printStackTrace();</span>
-        } finally {
-<span class="nc bnc" id="L159" title="All 14 branches missed.">            if(urlConnection != null){</span>
-<span class="nc" id="L160">                urlConnection.disconnect();</span>
-<span class="nc bnc" id="L161" title="All 14 branches missed.">            }if(reader != null){</span>
-                try{
-<span class="nc" id="L163">                    reader.close();</span>
-<span class="nc" id="L164">                }catch (final IOException e) {</span>
-<span class="nc" id="L165">                    e.printStackTrace();</span>
-<span class="nc" id="L166">                }</span>
-            }
-        }
-
-<span class="nc" id="L170">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

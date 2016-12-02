@@ -34,9 +34,11 @@ public class JUnitJSONConverter {
         e.setStart(11, 11, 2016);
         e.setEnd(12, 11, 2016);
         e.setAttendees(attendees);
+        e.setAttendeesString("123,456,789");
         e.setImageFN("devbharel/cbdc.jpg");
         e.setRegisterLink("something.com");
         e.setSchedule(schedule);
+        e.setScheduleString("skiing,dancing");
         
         System.out.println("@Before - setUp");
     }
@@ -64,7 +66,7 @@ public class JUnitJSONConverter {
     
     @Test
     public void testToJSONEvent() {
-        String expected = "{\"image\":\"devbharel/cbdc.jpg\",\"register_link\":\"something.com\",\"organizer\":\"some userid\",\"start\":\""+e.getFormattedStart()+"\",\"description\":\"Coolest Event\",\"end\":\""+e.getFormattedEnd()+"\",\"location\":\"here\",\"eventName\":\"Chicago Blockchain Developers Conference\"}";
+        String expected = "{\"image\":\"devbharel/cbdc.jpg\",\"register_link\":\"something.com\",\"attendees\":\"123,456,789\",\"organizer\":\"some userid\",\"start\":\""+e.getFormattedStart()+"\",\"eventName\":\"Chicago Blockchain Developers Conference\",\"description\":\"Coolest Event\",\"end\":\""+e.getFormattedEnd()+"\",\"location\":\"here\",\"events\":\"skiing,dancing\"}";
         assertEquals(expected, jC.toJSONEvent(e));
         System.out.println("@Test - testToJSONEvent");
     }

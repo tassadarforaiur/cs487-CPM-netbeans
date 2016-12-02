@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author Cpt.Bl'Ands
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({javaapplication1.JUnitEventTest.class, javaapplication1.JUnitSearchTest.class, javaapplication1.JUnitAccountTest.class})
+@Suite.SuiteClasses({javaapplication1.JUnitEventTest.class, javaapplication1.JUnitSearchTest.class, javaapplication1.JUnitAccountTest.class, javaapplication1.JUnitJSONConverter.class})
 public class Javaapplication1Suite {
 
     @BeforeClass

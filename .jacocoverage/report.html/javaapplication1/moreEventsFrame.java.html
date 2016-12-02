@@ -139,20 +139,31 @@ public class moreEventsFrame extends javax.swing.JFrame {
 <span class="nc" id="L139">    }//GEN-LAST:event_jButton2ActionPerformed</span>
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-<span class="nc" id="L142">        close();</span>
-<span class="nc" id="L143">        profileViewFrame pVF = new profileViewFrame(googleID);</span>
-<span class="nc" id="L144">        pVF.setVisible(true);</span>
-<span class="nc" id="L145">    }//GEN-LAST:event_jButton3ActionPerformed</span>
+<span class="nc" id="L142">        JSONConverter converter = new JSONConverter();</span>
+        
+<span class="nc" id="L144">        HttpPost poster = new HttpPost();</span>
+        
+<span class="nc" id="L146">        String JSONData = converter.toJSONGSAccount(googleID);</span>
+<span class="nc" id="L147">        String serverResponse = poster.executePost(JSONData, &quot;/login&quot;);</span>
+        
+<span class="nc" id="L149">        System.out.println(&quot;server says: &quot;+serverResponse);</span>
+        
+<span class="nc" id="L151">        Account tempAccount=converter.deserializeJSONAccount(serverResponse);</span>
+        
+<span class="nc" id="L153">        close();</span>
+<span class="nc" id="L154">        profileViewFrame pVF = new profileViewFrame(googleID, tempAccount);</span>
+<span class="nc" id="L155">        pVF.setVisible(true);</span>
+<span class="nc" id="L156">    }//GEN-LAST:event_jButton3ActionPerformed</span>
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
 
-<span class="nc" id="L149">    }//GEN-LAST:event_jTextField1ActionPerformed</span>
+<span class="nc" id="L160">    }//GEN-LAST:event_jTextField1ActionPerformed</span>
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-<span class="nc" id="L152">        close();</span>
-<span class="nc" id="L153">        makeEventFrame mkEF = new makeEventFrame();</span>
-<span class="nc" id="L154">        mkEF.setVisible(true);</span>
-<span class="nc" id="L155">    }//GEN-LAST:event_jButton4ActionPerformed</span>
+<span class="nc" id="L163">        close();</span>
+<span class="nc" id="L164">        makeEventFrame mkEF = new makeEventFrame(googleID);</span>
+<span class="nc" id="L165">        mkEF.setVisible(true);</span>
+<span class="nc" id="L166">    }//GEN-LAST:event_jButton4ActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -164,31 +175,31 @@ public class moreEventsFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L167" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L169">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L170">                    break;</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L180">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L181">                    break;</span>
                 }
             }
-<span class="nc" id="L173">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L174">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L175">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L176">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L177">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L178">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L179">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L180">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L181">        }</span>
+<span class="nc" id="L184">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L185">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L186">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L187">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L188">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L189">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L190">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L191">            java.util.logging.Logger.getLogger(moreEventsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L192">        }</span>
         //&lt;/editor-fold&gt;
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L186">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L197">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L188">                new moreEventsFrame().setVisible(true);</span>
-<span class="nc" id="L189">            }</span>
+<span class="nc" id="L199">                new moreEventsFrame().setVisible(true);</span>
+<span class="nc" id="L200">            }</span>
         });
-<span class="nc" id="L191">    }</span>
+<span class="nc" id="L202">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

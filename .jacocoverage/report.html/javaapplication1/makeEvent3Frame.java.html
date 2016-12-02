@@ -48,7 +48,7 @@ public class makeEvent3Frame extends javax.swing.JFrame {
 <span class="nc" id="L48">        button1 = new java.awt.Button();</span>
 <span class="nc" id="L49">        button2 = new java.awt.Button();</span>
 
-<span class="nc" id="L51">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L51">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
 
 <span class="nc" id="L53">        label1.setText(&quot;Choose a Map Image (.jpg only)&quot;);</span>
 
@@ -104,13 +104,13 @@ public class makeEvent3Frame extends javax.swing.JFrame {
 <span class="nc" id="L104">        HttpPost poster = new HttpPost();</span>
         
 <span class="nc" id="L106">        String JSONData = converter.toJSONEvent(tempEvent);</span>
-<span class="nc" id="L107">        String serverResponse = poster.executePostEvent(JSONData);</span>
+<span class="nc" id="L107">        String serverResponse = poster.executePost(JSONData, &quot;/addevent&quot;);</span>
         
 <span class="nc" id="L109">        System.out.println(&quot;server says: &quot;+serverResponse);</span>
         
 <span class="nc" id="L111">        close();</span>
-        //viewEventFrame vEF = new viewEventFrame(googleID);
-        //vEF.setVisible(true);
+<span class="nc" id="L112">        viewEventFrame vEF = new viewEventFrame(googleID, tempEvent);</span>
+<span class="nc" id="L113">        vEF.setVisible(true);</span>
 <span class="nc" id="L114">    }//GEN-LAST:event_button1ActionPerformed</span>
 
     /**

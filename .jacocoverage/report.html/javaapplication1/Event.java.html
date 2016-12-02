@@ -11,7 +11,7 @@ public class Event{
 
 <span class="nc" id="L12">    private Calendar start= Calendar.getInstance();</span>
 <span class="nc" id="L13">    private Calendar end = Calendar.getInstance();</span>
-<span class="nc" id="L14">    private String title, status=&quot;inactive&quot;, location, description, hostID, eventID, imageFN, registerLink;</span>
+<span class="nc" id="L14">    private String title, status=&quot;inactive&quot;, location, description, hostID, eventID, imageFN, registerLink,attendeesString,scheduleString;</span>
 <span class="nc" id="L15">    private DateFormat df = new SimpleDateFormat(&quot;EEE MMM dd kk:mm:ss zzz yyyy&quot;);</span>
 <span class="nc" id="L16">    private ArrayList&lt;String&gt; schedule = new ArrayList&lt;&gt;(); </span>
 <span class="nc" id="L17">    private ArrayList&lt;String&gt; attendees = new ArrayList&lt;&gt;();    </span>
@@ -148,58 +148,74 @@ public class Event{
     public ArrayList&lt;String&gt; getAttendees() {
 <span class="nc" id="L149">        return attendees;</span>
     }
+    
+    public String getAttendeesString(){
+<span class="nc" id="L153">        return attendeesString;</span>
+    }
+    
+    public String getScheduleString(){
+<span class="nc" id="L157">        return scheduleString;</span>
+    }
+    
+    public void setAttendeesString(String aS){
+<span class="nc" id="L161">        this.attendeesString= aS;</span>
+<span class="nc" id="L162">    }</span>
+    
+    public void setScheduleString(String sS){
+<span class="nc" id="L165">        this.scheduleString = sS;</span>
+<span class="nc" id="L166">    }</span>
 
     public void setHostID(String hID){
-<span class="nc" id="L153">        this.hostID=hID;</span>
-<span class="nc" id="L154">    }</span>
-    
-    public void setAttendees(ArrayList&lt;String&gt; attendees) {
-<span class="nc" id="L157">        this.attendees = attendees;</span>
-<span class="nc" id="L158">    }</span>
-
-    public void setRegisterLink(String registerLink) {
-<span class="nc" id="L161">        this.registerLink = registerLink;</span>
-<span class="nc" id="L162">    }    </span>
-    
-    public void setSchedule(ArrayList&lt;String&gt; s){
-<span class="nc" id="L165">        schedule=s;</span>
-<span class="nc" id="L166">    }</span>
-    
-    public void setImageFN(String i){
-<span class="nc" id="L169">        imageFN=i;</span>
+<span class="nc" id="L169">        this.hostID=hID;</span>
 <span class="nc" id="L170">    }</span>
     
-    public void setTitle(String t){
-<span class="nc" id="L173">        title=t;</span>
+    public void setAttendees(ArrayList&lt;String&gt; a) {
+<span class="nc" id="L173">        this.attendees = a;</span>
 <span class="nc" id="L174">    }</span>
 
-    public void setDescription(String d){
-<span class="nc" id="L177">        description=d;</span>
-<span class="nc" id="L178">    }</span>
-
-    public void setLocation(String l){
-<span class="nc" id="L181">        location=l;</span>
+    public void setRegisterLink(String registerLink) {
+<span class="nc" id="L177">        this.registerLink = registerLink;</span>
+<span class="nc" id="L178">    }    </span>
+    
+    public void setSchedule(ArrayList&lt;String&gt; s){
+<span class="nc" id="L181">        schedule=s;</span>
 <span class="nc" id="L182">    }</span>
-
-    public void setStart(int sD, int sM, int sY){
-<span class="nc" id="L185">        start.set(sY, sM, sD);</span>
+    
+    public void setImageFN(String i){
+<span class="nc" id="L185">        imageFN=i;</span>
 <span class="nc" id="L186">    }</span>
     
-    public void setStart(Date s){
-<span class="nc" id="L189">        start.setTime(s);</span>
+    public void setTitle(String t){
+<span class="nc" id="L189">        title=t;</span>
 <span class="nc" id="L190">    }</span>
 
-    public void setEnd(int eD, int eM, int eY){
-<span class="nc" id="L193">        end.set(eY, eM, eD);</span>
+    public void setDescription(String d){
+<span class="nc" id="L193">        description=d;</span>
 <span class="nc" id="L194">    }</span>
-    
-    public void setEnd(Date e){
-<span class="nc" id="L197">        end.setTime(e);</span>
+
+    public void setLocation(String l){
+<span class="nc" id="L197">        location=l;</span>
 <span class="nc" id="L198">    }</span>
 
-    public void setEventID(String eID){
-<span class="nc" id="L201">        eventID=eID;</span>
+    public void setStart(int sD, int sM, int sY){
+<span class="nc" id="L201">        start.set(sY, sM, sD);</span>
 <span class="nc" id="L202">    }</span>
+    
+    public void setStart(Date s){
+<span class="nc" id="L205">        start.setTime(s);</span>
+<span class="nc" id="L206">    }</span>
+
+    public void setEnd(int eD, int eM, int eY){
+<span class="nc" id="L209">        end.set(eY, eM, eD);</span>
+<span class="nc" id="L210">    }</span>
+    
+    public void setEnd(Date e){
+<span class="nc" id="L213">        end.setTime(e);</span>
+<span class="nc" id="L214">    }</span>
+
+    public void setEventID(String eID){
+<span class="nc" id="L217">        eventID=eID;</span>
+<span class="nc" id="L218">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

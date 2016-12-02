@@ -222,7 +222,7 @@ import javax.servlet.http.HttpServletResponse;
 <span class="nc" id="L222">        String serverResponse = &quot;not a valid response&quot;;</span>
         
 <span class="nc" id="L224">        String JSONData = converter.toJSONGAccount(tempAcc);</span>
-<span class="nc" id="L225">        serverResponse = poster.executePostAcc(JSONData);</span>
+<span class="nc" id="L225">        serverResponse = poster.executePost(JSONData, &quot;/login&quot;);</span>
         
 <span class="nc" id="L227">        System.out.println(&quot;server says: &quot;+serverResponse);</span>
         
