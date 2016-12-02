@@ -26,6 +26,9 @@ public class viewEventFrame extends javax.swing.JFrame {
     public viewEventFrame(String gID, Event e) {
         googleID=gID;
         tempEvent=e;
+        jTextField1.setText(e.getTitle());
+        jTextArea1.setText(e.getDescription());
+        jTextArea2.setText(e.getLocation());
         initComponents();
     }
     public void close(){

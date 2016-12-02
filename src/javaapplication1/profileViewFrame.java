@@ -38,9 +38,20 @@ public class profileViewFrame extends javax.swing.JFrame {
     private Account tempAcc;
     private String googleID;
     public profileViewFrame(String gID, Account a){
+        initComponents();
         tempAcc=a;
         googleID=gID;
-        initComponents();
+        String tempName = tempAcc.getName();
+        String[] nameArray = tempName.split(",");
+        String tempAddress = tempAcc.getAddress();
+        String[] addressArray = tempAddress.split(",");
+        jTextField1.setText(nameArray[0]);
+        jTextField2.setText(nameArray[1]);
+        jTextField3.setText(nameArray[2]);
+        jTextField4.setText(addressArray[0]);
+        jTextField5.setText(addressArray[1]);
+        jTextField6.setText(addressArray[2]);
+        jTextField7.setText(addressArray[3]);
     }
 
     public void close(){
